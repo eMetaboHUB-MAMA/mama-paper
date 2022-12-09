@@ -1,0 +1,203 @@
+---
+#title: 'MAMA: the *M*etaboHUB´s *A*nalyses *MA*nager'
+title: 'MAMA: a WebApp to manage Metabolomics Laboratories Analyses Requests'
+tags:
+  - PHP
+  - REST
+  - WebApp
+  - Lab Requests Manager
+authors:
+  - name: Nils Paulhe
+    orcid: 0000-0003-4550-1258
+    equal-contrib: true
+    affiliation: "1" # (Multiple affiliations must be quoted)
+  - name: Franck Giacomoni
+    orcid: 0000-0001-6063-4214
+    equal-contrib: true
+    affiliation: "1" # (Multiple affiliations must be quoted)
+#  - name: Author Without ORCID
+#    equal-contrib: true # (This is how you can denote equal contributions between multiple authors)
+#    affiliation: 2
+#  - name: Author with no affiliation
+#    corresponding: true # (This is how to denote the corresponding author)
+#    affiliation: 3
+affiliations:
+ - name: Université Clermont Auvergne, INRAE, UNH, Plateforme d’Exploration du Métabolisme, MetaboHUB Clermont, Clermont‑Ferrand, France
+   index: 1
+# - name: Institution Name, Country
+#   index: 2
+# - name: Independent Researcher, Country
+#   index: 3
+date: 9 December 2022
+bibliography: paper.bib
+
+## Optional fields if submitting to a AAS journal too, see this blog post:
+## https://blog.joss.theoj.org/2018/12/a-new-collaboration-with-aas-publishing
+#aas-doi: 10.3847/xxxxx <- update this with the DOI from AAS once you know it.
+#aas-journal: Astrophysical Journal <- The name of the AAS journal.
+---
+
+# Summary
+
+<!-- move this to 'intro'? -->
+MetaboHUB is the French National Facility in Metabolomics & Fluxomics created in 2013. 
+It aims at providing state-of-the-art tools, services and support in metabolomics and 
+fluxomics to academic research teams and industrial partners in the fields of nutrition,
+health, agriculture and biotechnology. 
+
+The MetaboHUB consortium needed a specific tool in order to manage his partners requests. 
+The Bioinformatic Workpackage of the project developed this tool: a RESTful API and its WebApp, 
+under the "MAMA" label (stands for "**M**etaboHUB´s **A**nalyses **MA**nager"). 
+
+The code of this projet is now under published under an OpenSource License.
+Any laboratory is free to either host an instance of the application for itself, 
+or fork the code for its own needs. 
+
+<!-- As a part of the MetaboHUB project, the WebService access to the MAMA service is 
+integrated in the project’s forth Workpackage. It is possible for anyone to develop
+his own client component in order to call the WebService directly. The WebServire 
+base URL is: mama-rest.metabohub.fr. -->
+
+
+# Statement of need
+
+<!-- look like an introduction -->
+The request was to provide a light WebApp to:
+\begin{itemize}
+    \item gather the consortium's partners requests (analyses, training, equipment provisioning, \ldots)
+    \item split off requests on differents consortium geographical sites.
+    \item exchange informations about submited requests; between partners and the consortium, and 
+    between consortium nodes.
+    \item compute indicators and statics for the consortium funders
+\end{itemize}
+
+The WebApp's graphical user interfaces for "Create new request" form has been designed to support 
+Metabolomics analyses. The vocabulary and the data to submit is specific for this scientific field. 
+The web-form statics input can not be easley customisable (static HTML code) however some data like
+the consortium geographical sites or project's keywords are managed in the database; that allow MAMA's
+administator to easely add or update these tags.
+
+The last need for the consortium is to provide indicators and statistics to the French Research Agency
+("ANR - Agence Nationale de la Recherche"), an institute that fund the MetaboHUB consortium. 
+The main indicators are about the number of project per consortium node, the repatition of the projects
+types, the projects providing sources, the thematic keywords repartitions, \ldots 
+It is important for the consortium to track informations about "rejected analyses requests": this might 
+help it to focus on new data of expertise to better answer metabolomics' community needs.
+
+An XLS export with all projects and users indicators is also available; it allow to perform custom 
+and advanced statistics using Microsoft Excel or LibreOffice softwares. 
+Otherwise a developer can code a REST client to perform specific advanced statistics queryies calling
+the REST API.
+
+Warning: `MAMA` is just focus on the analyses **requests**. The analyses management in a laboratory 
+shall be managed using a "Laboratory Information Management System" software (LIMS). 
+Still, MetaboHUB's consortium in-house LIMS softwares can exchange informations with `MAMA REST API`.
+
+# Material and Methods
+
+## Project structure
+
+We choose to split the project in a light WebApp and a RESTful API. The WebApp bounce on the REST
+API for all requests; this is a garanti for the developper that all the intelligence is centralized in it.
+
+FIGURE
+
+## Front-end technologies and OpenSource frameworks 
+
+The WebApp has been developed in early 2016 before the major accession of WebComponents like Angular 
+or Vue 2 (both launched on september 2016). Still, we wanted to develop an Application with the same
+phylosophie: a light WebApp client that call a RESTful API.
+
+We used [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/), an open source, 
+admin dashboard template for [Bootstrap](http://getbootstrap.com/) created by 
+[Start Bootstrap](http://startbootstrap.com/). This template uses Twitter Bootstrap, jQuery and 
+HighChart libraries and frameworks. We "forked" the project code at our convinence thanks 
+its `Apache 2.0` license.
+
+## Back-end technologies and OpenSource frameworks 
+
+REST API - php symphony, composer, orm, ...
+
+
+# Tool capacities
+
+stats,
+follow up projects
+plug third part tools on the rest api
+
+rShiny clients?
+
+<!--
+# Statement of need
+
+`Gala` is an Astropy-affiliated Python package for galactic dynamics. Python
+enables wrapping low-level languages (e.g., C) for speed without losing
+flexibility or ease-of-use in the user-interface. The API for `Gala` was
+designed to provide a class-based and user-friendly interface to fast (C or
+Cython-optimized) implementations of common operations such as gravitational
+potential and force evaluation, orbit integration, dynamical transformations,
+and chaos indicators for nonlinear dynamics. `Gala` also relies heavily on and
+interfaces well with the implementations of physical units and astronomical
+coordinate systems in the `Astropy` package [@astropy] (`astropy.units` and
+`astropy.coordinates`).
+
+`Gala` was designed to be used by both astronomical researchers and by
+students in courses on gravitational dynamics or astronomy. It has already been
+used in a number of scientific publications [@Pearson:2017] and has also been
+used in graduate courses on Galactic dynamics to, e.g., provide interactive
+visualizations of textbook material [@Binney:2008]. The combination of speed,
+design, and support for Astropy functionality in `Gala` will enable exciting
+scientific explorations of forthcoming data releases from the *Gaia* mission
+[@gaia] by students and experts alike.-->
+
+<!--
+# Mathematics
+
+Single dollars ($) are required for inline mathematics e.g. $f(x) = e^{\pi/x}$
+
+Double dollars make self-standing equations:
+
+$$\Theta(x) = \left\{\begin{array}{l}
+0\textrm{ if } x < 0\cr
+1\textrm{ else}
+\end{array}\right.$$
+
+You can also use plain \LaTeX for equations
+\begin{equation}\label{eq:fourier}
+\hat f(\omega) = \int_{-\infty}^{\infty} f(x) e^{i\omega x} dx
+\end{equation}
+and refer to \autoref{eq:fourier} from text.-->
+
+# Citations
+
+Citations to entries in paper.bib should be in
+[rMarkdown](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
+format.
+
+If you want to cite a software repository URL (e.g. something on GitHub without a preferred
+citation) then you can do it with the example BibTeX entry below for @fidgit.
+
+For a quick reference, the following citation commands can be used:
+- `@author:2001`  ->  "Author et al. (2001)"
+- `[@author:2001]` -> "(Author et al., 2001)"
+- `[@author1:2001; @author2:2001]` -> "(Author1 et al., 2001; Author2 et al., 2002)"
+
+# Figures
+
+Figures can be included like this:
+![Caption for example figure.\label{fig:example}](images/figure.png)
+and referenced from text using \autoref{fig:example}.
+
+Figure sizes can be customized by adding an optional second parameter:
+![Caption for example figure.](images/figure.png){ width=20% }
+
+# Acknowledgements
+
+The `MAMA` project is supported by the French National Facility in Metabolomics & Fluxomics, 
+MetaboHUB (11-INBS-0010), launched by the French Ministry of Research and Higher Education 
+and the French ANR funding agency within the Programme "Investissements d’Avenir". 
+The authors thank all MetaboHUB nodes and French metabolomics facilities for their investment 
+in the development project. We also thank Professor D. Rolin for his continual support of the 
+project and its team.
+
+# References

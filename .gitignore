@@ -1,0 +1,5 @@
+
+# ignore PDF generated files
+paper/*.pdf
+paper/media
+paper/*.jats
