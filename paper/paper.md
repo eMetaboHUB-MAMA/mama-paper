@@ -102,7 +102,7 @@ API for all requests; this is a garanti for the developpers that all core intell
 A tiny PHP proxy manage the user sessions to simplify client requests sending to the back-end 
 (as mentionned in \autoref{fig:project_structure}).
 
-![MAMA project structure.\label{fig:project_structure}](images/project_structure.png){ width=70% }
+![MAMA project structure.\label{fig:project_structure}](images/project_structure.png){ width=80% }
 
 ## Front-end technologies and OpenSource frameworks 
 
@@ -130,16 +130,30 @@ The PHP dependency manager [Composer](https://getcomposer.org/) is required in o
     \item \textbf{phpexcel} (create XLS files \href{https://packagist.org/packages/phpoffice/phpexcel}{view on website})
 \end{itemize}
 
-We provide a docker image ready to host the application.
+The "MAMA - REST" application require a MySQL database and a SMTP client to work properly. 
+These third part tool can be configured in a specific `ini` file. We provide a docker image 
+ready to host the application. 
 <!-- TODO: link to published docker image? -->
 
-# Tool capacities
+Even if we only use the `JSON` REST output, we also developed `XML` and basic `TEXT` ones. 
+Our goal was to open the REST API to any developers, all methods are listed in the 
+official documentation <!-- TODO link to official REST doc -->
 
-stats,
-follow up projects
+# Tool capacities 
+<!-- results/discussion -->
+
+The first objective of the application is to create a bridge between MetaboHUB 
+consortium nodes and its partners. Then these partners can follow their analyses 
+requests through the same application. 
+
+The second objective was to provide statistics about MetaboHUB's partners and their
+analyses requests. 
+
+![Statistics example.\label{fig:statistics_example}](images/statistics_example.png){ width=80% }
+
+<!--
 plug third part tools on the rest api
-
-rShiny clients?
+rShiny clients? -->
 
 <!--
 # Statement of need
