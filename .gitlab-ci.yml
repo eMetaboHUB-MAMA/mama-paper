@@ -22,7 +22,7 @@ stages:
 ###############################################################################
 ## BUILD
 
-build:
+build PDF:
   stage: build
   tags:
     - shell-sauron
@@ -34,6 +34,7 @@ build:
   after_script:
     - echo "==================================";
     - echo "[info] copy generated PDF into 'artifacts' directory ";
+    - test -d artifacts || mkdir artifacts
     - cp paper/paper.pdf artifacts/
     - echo "==================================";
 
