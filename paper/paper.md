@@ -99,8 +99,9 @@ Still, MetaboHUB's consortium in-house LIMS softwares can exchange informations 
 
 We choose to split the project in a light WebApp and a RESTful API. The WebApp bounce on the REST
 API for all requests; this is a garanti for the developper that all the intelligence is centralized in it.
+A tiny PHP proxy manage the user sessions to simplify client requests sending to the back-end.
 
-FIGURE
+![MAMA project structure.](images/project_structure.png){ width=70% }
 
 ## Front-end technologies and OpenSource frameworks 
 
@@ -112,11 +113,23 @@ We used [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/), 
 admin dashboard template for [Bootstrap](http://getbootstrap.com/) created by 
 [Start Bootstrap](http://startbootstrap.com/). This template uses Twitter Bootstrap, jQuery and 
 HighChart libraries and frameworks. We "forked" the project code at our convinence thanks 
-its `Apache 2.0` license.
+its [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/blob/gh-pages/LICENSE) license.
 
 ## Back-end technologies and OpenSource frameworks 
 
-REST API - php symphony, composer, orm, ...
+The back-end has been developed in PHP 7.4 and requirer third part libraries and frameworks to work. All PHP
+modules or system binaries are listed in the project's README file in the `Requirements` section.
+The PHP dependency manager [Composer](https://getcomposer.org/) is required in order fetch these frameworks with the correct version:
+
+\begin{itemize}
+    \item `slim` (PHP micro framework to write simple web applications and APIs)
+    \item `doctrine` (database storage and object mapping based on Object Relational Mapper (ORM) and the Database Abstraction Layer (DBAL) concepts) 
+    \item `jobbyphp` (add cron expression to your PHP project [view on github](https://github.com/jobbyphp/jobby))
+    \item `phpmailer` (send emails [view on github](https://github.com/PHPMailer/PHPMailer))
+    \item `phpexcel` (create XLS files [view on website](https://packagist.org/packages/phpoffice/phpexcel))
+\end{itemize}
+
+We provide a docker image ready to host the application.
 
 
 # Tool capacities
