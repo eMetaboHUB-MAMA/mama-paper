@@ -98,10 +98,11 @@ Still, MetaboHUB's consortium in-house LIMS softwares can exchange informations 
 ## Project structure
 
 We choose to split the project in a light WebApp and a RESTful API. The WebApp bounce on the REST
-API for all requests; this is a garanti for the developper that all the intelligence is centralized in it.
-A tiny PHP proxy manage the user sessions to simplify client requests sending to the back-end.
+API for all requests; this is a garanti for the developpers that all core intelligence is centralized in it.
+A tiny PHP proxy manage the user sessions to simplify client requests sending to the back-end 
+(as mentionned in \autoref{fig:project_structure}).
 
-![MAMA project structure.](images/project_structure.png){ width=70% }
+![MAMA project structure.\label{fig:project_structure}](images/project_structure.png){ width=70% }
 
 ## Front-end technologies and OpenSource frameworks 
 
@@ -122,15 +123,15 @@ modules or system binaries are listed in the project's README file in the `Requi
 The PHP dependency manager [Composer](https://getcomposer.org/) is required in order fetch these frameworks with the correct version:
 
 \begin{itemize}
-    \item `slim` (PHP micro framework to write simple web applications and APIs)
-    \item `doctrine` (database storage and object mapping based on Object Relational Mapper (ORM) and the Database Abstraction Layer (DBAL) concepts) 
-    \item `jobbyphp` (add cron expression to your PHP project [view on github](https://github.com/jobbyphp/jobby))
-    \item `phpmailer` (send emails [view on github](https://github.com/PHPMailer/PHPMailer))
-    \item `phpexcel` (create XLS files [view on website](https://packagist.org/packages/phpoffice/phpexcel))
+    \item \textbf{slim} (PHP micro framework to write simple web applications and APIs)
+    \item \textbf{doctrine} (database storage and object mapping based on Object Relational Mapper (ORM) and the Database Abstraction Layer (DBAL) concepts) 
+    \item \textbf{jobbyphp} (add cron expression to your PHP project \href{https://github.com/jobbyphp/jobby}{view on github})
+    \item \textbf{phpmailer} (send emails \href{https://github.com/PHPMailer/PHPMailer}{view on github})
+    \item \textbf{phpexcel} (create XLS files \href{https://packagist.org/packages/phpoffice/phpexcel}{view on website})
 \end{itemize}
 
 We provide a docker image ready to host the application.
-
+<!-- TODO: link to published docker image? -->
 
 # Tool capacities
 
@@ -195,14 +196,15 @@ For a quick reference, the following citation commands can be used:
 - `[@author:2001]` -> "(Author et al., 2001)"
 - `[@author1:2001; @author2:2001]` -> "(Author1 et al., 2001; Author2 et al., 2002)"
 
+<!--
 # Figures
 
 Figures can be included like this:
-![Caption for example figure.\label{fig:example}](images/figure.png)
-and referenced from text using \autoref{fig:example}.
+![Caption for example figure.\label{fig:figure1}](images/figure.png)
+and referenced from text using \autoref{fig:figure1}.
 
 Figure sizes can be customized by adding an optional second parameter:
-![Caption for example figure.](images/figure.png){ width=20% }
+![Caption for example figure.](images/figure.png){ width=20% }-->
 
 # Acknowledgements
 
