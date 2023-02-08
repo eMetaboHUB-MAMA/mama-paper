@@ -43,7 +43,7 @@ bibliography: paper.bib
 MetaboHUB is the French National Facility in Metabolomics & Fluxomics created in 2013. 
 It aims at providing state-of-the-art tools, services and support in metabolomics and 
 fluxomics to academic research teams and industrial partners in the fields of nutrition,
-health, agriculture and biotechnology. 
+health, agriculture and biotechnology [@rolin:hal-01002241]. 
 
 The MetaboHUB consortium needed a specific tool in order to manage his partners requests. 
 The Bioinformatic Workpackage of the project developed this tool: a RESTful API and its WebApp, 
@@ -196,6 +196,7 @@ You can also use plain \LaTeX for equations
 \end{equation}
 and refer to \autoref{eq:fourier} from text.-->
 
+<!--
 # Citations
 
 Citations to entries in paper.bib should be in
@@ -208,7 +209,7 @@ citation) then you can do it with the example BibTeX entry below for @fidgit.
 For a quick reference, the following citation commands can be used:
 - `@author:2001`  ->  "Author et al. (2001)"
 - `[@author:2001]` -> "(Author et al., 2001)"
-- `[@author1:2001; @author2:2001]` -> "(Author1 et al., 2001; Author2 et al., 2002)"
+- `[@author1:2001; @author2:2001]` -> "(Author1 et al., 2001; Author2 et al., 2002)"-->
 
 <!--
 # Figures
