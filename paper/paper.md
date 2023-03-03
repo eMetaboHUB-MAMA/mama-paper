@@ -39,7 +39,42 @@ bibliography: paper.bib
 
 # Summary
 
-<!-- move this to 'intro'? -->
+TODO - @npaulhe
+
+<!-- Purpose & Motivation -->
+<!-- Problem -->
+<!-- Approach -->
+<!-- Results -->
+<!-- Conclusion -->
+
+<!-- As a part of the MetaboHUB project, the WebService access to the MAMA service is 
+integrated in the project’s forth Workpackage. It is possible for anyone to develop
+his own client component in order to call the WebService directly. The WebServire 
+base URL is: mama-rest.metabohub.fr. -->
+
+# Installation
+
+If you want to install and deploy your own MAMA instance server, 
+you can either directly clone `mama-rest` and `mama-webapp` git repositories (option 1) 
+or just pull matching Docker images and run these services as Docker containers (option 2).
+For both options you will need a MySQL database.
+
+<!-- Code repository -->
+For option 1 "Code repository", please follow each repository `README.md` file instruction to
+install correct third part tools, libraries and dependency (apache and PHP versions, apache and PHP modules and their configuration, ...)
+This option is recommanded if you want to fork the project and customize the project to your own needs.
+
+<!-- Docker image -->
+Option 2 "Docker image" is only recommended if you want to run MAMA project "as it". 
+Warning: you still need to update MAMA configuration files (`config/mama-config.ini` for `MAMA - REST` and `config/mama-webapp.json` for `MAMA WebApp`).
+You can either keep these configuration file on the host server and mount them into your Docker containers with `-v | --volumes` docker option or
+edit files in their docker containers and `docker commit` changes (and apache daemon restart is required to reload configuration files in both containers).
+
+# Statement of need
+
+<!-- Data management at a lab scale -->
+## Introduction - Data management at a lab scale
+
 MetaboHUB is the French National Facility in Metabolomics & Fluxomics created in 2013. 
 It aims at providing state-of-the-art tools, services and support in metabolomics and 
 fluxomics to academic research teams and industrial partners in the fields of nutrition,
@@ -49,19 +84,6 @@ The MetaboHUB consortium needed a specific tool in order to manage his partners 
 The Bioinformatic Workpackage of the project developed this tool: a RESTful API and its WebApp, 
 under the "MAMA" label (stands for "**M**etaboHUB´s **A**nalyses **MA**nager"). 
 
-The code of this projet is now under published under an OpenSource License.
-Any laboratory is free to either host an instance of the application for itself, 
-or fork the code for its own needs. 
-
-<!-- As a part of the MetaboHUB project, the WebService access to the MAMA service is 
-integrated in the project’s forth Workpackage. It is possible for anyone to develop
-his own client component in order to call the WebService directly. The WebServire 
-base URL is: mama-rest.metabohub.fr. -->
-
-
-# Statement of need
-
-<!-- look like an introduction -->
 The request was to provide a light WebApp to:
 \begin{itemize}
     \item gather the consortium's partners requests (analyses, training, equipment provisioning, \ldots)
@@ -71,6 +93,108 @@ The request was to provide a light WebApp to:
     \item compute indicators and statics for the consortium funders
 \end{itemize}
 
+<!-- Project data management -->
+## Project data management
+
+TODO - @npaulhe
+
+<!-- Portal with internal/external collaborator -->
+## Portal with internal/external collaborator
+
+TODO - @npaulhe
+
+<!-- FAIR, controled vocabulary and RGPD -->
+## FAIR, controled vocabulary and RGPD
+
+TODO - @npaulhe
+
+<!-- Indicators computing -->
+## Indicators computing
+
+TODO - @npaulhe
+
+<!-- Many complex and commercial solutions -->
+## Many complex and commercial solutions
+
+TODO - @npaulhe
+
+<!-- Dev simple web solution + API  -->
+## Dev simple web solution + API
+
+TODO - @npaulhe
+
+# Methods
+
+We choose to split the project in a light WebApp and a RESTful API. The WebApp bounce on the REST
+API for all requests; this is a garanti for the developpers that all core intelligence is centralized in it.
+A tiny PHP proxy manage the user sessions to simplify client requests sending to the back-end 
+(as mentionned in \autoref{fig:project_structure}).
+
+![MAMA project structure.\label{fig:project_structure}](images/project_structure.png){ width=80% }
+
+## WebApp code part
+
+The WebApp has been developed in early 2016 before the major accession of WebComponents like Angular 
+or Vue 2 (both launched on september 2016). Still, we wanted to develop an Application with the same
+phylosophie: a light WebApp client that call a RESTful API.
+
+We used [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/), an open source, 
+admin dashboard template for [Bootstrap](http://getbootstrap.com/) created by 
+[Start Bootstrap](http://startbootstrap.com/). This template uses Twitter Bootstrap, jQuery and 
+HighChart libraries and frameworks. We "forked" the project code at our convinence thanks 
+its [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/blob/gh-pages/LICENSE) license.
+
+## REST API code part
+
+The back-end has been developed in PHP 7.4 and requirer third part libraries and frameworks to work. All PHP
+modules or system binaries are listed in the project's README file in the `Requirements` section.
+The PHP dependency manager [Composer](https://getcomposer.org/) is required in order fetch these frameworks with the correct version:
+
+\begin{itemize}
+    \item \textbf{slim} (PHP micro framework to write simple web applications and APIs)
+    \item \textbf{doctrine} (database storage and object mapping based on Object Relational Mapper (ORM) and the Database Abstraction Layer (DBAL) concepts) 
+    \item \textbf{jobbyphp} (add cron expression to your PHP project \href{https://github.com/jobbyphp/jobby}{view on github})
+    \item \textbf{phpmailer} (send emails \href{https://github.com/PHPMailer/PHPMailer}{view on github})
+    \item \textbf{phpexcel} (create XLS files \href{https://packagist.org/packages/phpoffice/phpexcel}{view on website})
+\end{itemize}
+
+The "MAMA - REST" application require a MySQL database and a SMTP client to work properly. 
+These third part tool can be configured in a specific `ini` file. We provide a docker image 
+ready to host the application. 
+
+# Features
+
+## WebApp
+
+### Requests
+### Projects follow-up
+### Indicator
+
+## REST APIs
+
+### Documentaiton
+### Open to contributions
+### Link to @fvinson tool?
+
+## Figures
+
+### Global dashboard
+
+### Indicator deashboard
+
+# Acknowledgements
+
+The `MAMA` project is supported by the French National Facility in Metabolomics & Fluxomics, 
+MetaboHUB (11-INBS-0010), launched by the French Ministry of Research and Higher Education 
+and the French ANR funding agency within the Programme "Investissements d’Avenir". 
+The authors thank all MetaboHUB nodes and French metabolomics facilities for their investment 
+in the development project. We also thank Professor D. Rolin for his continual support of the 
+project and its team.
+
+A special thanks to Dr Justine Bertrand-Michel, Pr Dominique Rolin, Dr Stephanie Durand and
+all members involved in this MetaboHUB deliverable for their advices, tests and feedbacks on this project.
+
+<!--
 The WebApp's graphical user interfaces for "Create new request" form has been designed to support 
 Metabolomics analyses. The vocabulary and the data to submit is specific for this scientific field. 
 The web-form statics input can not be easley customisable (static HTML code) however some data like
@@ -92,64 +216,29 @@ the REST API.
 Warning: `MAMA` is just focus on the analyses **requests**. The analyses management in a laboratory 
 shall be managed using a "Laboratory Information Management System" software (LIMS). 
 Still, MetaboHUB's consortium in-house LIMS softwares can exchange informations with `MAMA REST API`.
+-->
+<!-- 
 
-# Material and Methods
-
-## Project structure
-
-We choose to split the project in a light WebApp and a RESTful API. The WebApp bounce on the REST
-API for all requests; this is a garanti for the developpers that all core intelligence is centralized in it.
-A tiny PHP proxy manage the user sessions to simplify client requests sending to the back-end 
-(as mentionned in \autoref{fig:project_structure}).
-
-![MAMA project structure.\label{fig:project_structure}](images/project_structure.png){ width=80% }
-
-## Front-end technologies and OpenSource frameworks 
-
-The WebApp has been developed in early 2016 before the major accession of WebComponents like Angular 
-or Vue 2 (both launched on september 2016). Still, we wanted to develop an Application with the same
-phylosophie: a light WebApp client that call a RESTful API.
-
-We used [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/), an open source, 
-admin dashboard template for [Bootstrap](http://getbootstrap.com/) created by 
-[Start Bootstrap](http://startbootstrap.com/). This template uses Twitter Bootstrap, jQuery and 
-HighChart libraries and frameworks. We "forked" the project code at our convinence thanks 
-its [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/blob/gh-pages/LICENSE) license.
-
-## Back-end technologies and OpenSource frameworks 
-
-The back-end has been developed in PHP 7.4 and requirer third part libraries and frameworks to work. All PHP
-modules or system binaries are listed in the project's README file in the `Requirements` section.
-The PHP dependency manager [Composer](https://getcomposer.org/) is required in order fetch these frameworks with the correct version:
-
-\begin{itemize}
-    \item \textbf{slim} (PHP micro framework to write simple web applications and APIs)
-    \item \textbf{doctrine} (database storage and object mapping based on Object Relational Mapper (ORM) and the Database Abstraction Layer (DBAL) concepts) 
-    \item \textbf{jobbyphp} (add cron expression to your PHP project \href{https://github.com/jobbyphp/jobby}{view on github})
-    \item \textbf{phpmailer} (send emails \href{https://github.com/PHPMailer/PHPMailer}{view on github})
-    \item \textbf{phpexcel} (create XLS files \href{https://packagist.org/packages/phpoffice/phpexcel}{view on website})
-\end{itemize}
-
-The "MAMA - REST" application require a MySQL database and a SMTP client to work properly. 
-These third part tool can be configured in a specific `ini` file. We provide a docker image 
-ready to host the application. 
+-->
 <!-- TODO: link to published docker image? -->
-
+<!--
 Even if we only use the `JSON` REST output, we also developed `XML` and basic `TEXT` ones. 
 Our goal was to open the REST API to any developers, all methods are listed in the 
-official documentation <!-- TODO link to official REST doc -->
+official documentation 
+-->
+<!-- TODO link to official REST doc -->
 
-# Tool capacities 
+<!-- # Tool capacities  -->
 <!-- results/discussion -->
 
-The first objective of the application is to create a bridge between MetaboHUB 
+<!--The first objective of the application is to create a bridge between MetaboHUB 
 consortium nodes and its partners. Then these partners can follow their analyses 
 requests through the same application. 
 
 The second objective was to provide statistics about MetaboHUB's partners and their
-analyses requests. 
+analyses requests. -->
 
-![Statistics example.\label{fig:statistics_example}](images/statistics_example.png){ width=80% }
+<!-- ![Statistics example.\label{fig:statistics_example}](images/statistics_example.png){ width=80% } -->
 
 <!--
 plug third part tools on the rest api
@@ -221,13 +310,6 @@ and referenced from text using \autoref{fig:figure1}.
 Figure sizes can be customized by adding an optional second parameter:
 ![Caption for example figure.](images/figure.png){ width=20% }-->
 
-# Acknowledgements
 
-The `MAMA` project is supported by the French National Facility in Metabolomics & Fluxomics, 
-MetaboHUB (11-INBS-0010), launched by the French Ministry of Research and Higher Education 
-and the French ANR funding agency within the Programme "Investissements d’Avenir". 
-The authors thank all MetaboHUB nodes and French metabolomics facilities for their investment 
-in the development project. We also thank Professor D. Rolin for his continual support of the 
-project and its team.
 
 # References
