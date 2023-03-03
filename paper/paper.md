@@ -48,21 +48,19 @@ TODO - @npaulhe
 
 # Installation
 
-If you want to install and deploy your own MAMA instance server, 
-you can either directly clone `mama-rest` and `mama-webapp` git repositories (option 1) 
+To install and deploy a local MAMA instance server:
+please, clone `mama-rest` and `mama-webapp` git repositories (option 1)
 or just pull reference Docker images and run these services as Docker containers (option 2).
-For both options you will need a MySQL database (refere to the documentation for the tool version and configuration).
+
+For both options you need a MySQL database (refering to the documentation for the tool version and configuration).
 
 <!-- Code repository -->
 For option 1 "Code repository", please follow each repository `README.md` file instruction to
-install correct third part tools, libraries and dependency (apache and PHP versions, apache and PHP modules and their configuration, ...)
-This option is recommanded if you want to fork the project and customize the project to your own needs.
+install and configure correctly third part tools, libraries and dependencies (Apache and PHP modules and versions). This option is recommanded if you want to fork the project and implement your own MAMA version.
 
 <!-- Docker image -->
-Option 2 "Docker image" is only recommended if you want to run MAMA project "as it". 
-Warning: you still need to update MAMA configuration files (`config/mama-config.ini` for `MAMA - REST` and `config/mama-webapp.json` for `MAMA WebApp`).
-You can either keep these configuration file on the host server and mount them into your Docker containers with `-v | --volumes` docker option or
-edit files in their docker containers and `docker commit` changes (and apache daemon restart is required to reload configuration files in both containers).
+Option 2 "Docker image" is only recommended if you want to run the last version of the MAMA project. 
+Warning: you need to update MAMA configuration files (`config/mama-config.ini` for `MAMA - REST` and `config/mama-webapp.json` for `MAMA WebApp`). We also advise to host configuration files on the server side and mount them into your Docker containers with `-v | --volumes` docker option or edit directly files in docker containers + `docker commit` changes. The Apache daemon must be restart to reload configuration updates in both containers).
 
 # Statement of need
 
