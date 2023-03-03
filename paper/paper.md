@@ -1,11 +1,10 @@
 ---
-#title: 'MAMA: the *M*etaboHUB´s *A*nalyses *MA*nager'
-title: 'MAMA: a WebApp to manage Metabolomics Laboratories Analyses Requests'
+title: 'MAMA: a Web application to MAnage Metabolomics laboratory Analysis requests'
 tags:
   - PHP
   - REST
   - WebApp
-  - Lab Requests Manager
+  - Laboratory data manager
 authors:
   - name: Nils Paulhe
     orcid: 0000-0003-4550-1258
