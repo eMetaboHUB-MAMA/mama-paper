@@ -88,6 +88,28 @@ The request was to provide a light WebApp to:
     \item compute indicators and statics for the consortium funders
 \end{itemize}
 
+The WebApp's graphical user interfaces for "Create new request" form has been designed to support 
+Metabolomics analyses. The vocabulary and the data to submit is specific for this scientific field. 
+The web-form statics input can not be easley customisable (static HTML code) however some data like
+the consortium geographical sites or project's keywords are managed in the database; that allow MAMA's
+administator to easely add or update these tags.
+
+The last need for the consortium is to provide indicators and statistics to the French Research Agency
+("ANR - Agence Nationale de la Recherche"), an institute that fund the MetaboHUB consortium. 
+The main indicators are about the number of project per consortium node, the repatition of the projects
+types, the projects providing sources, the thematic keywords repartitions, \ldots 
+It is important for the consortium to track informations about "rejected analyses requests": this might 
+help it to focus on new data of expertise to better answer metabolomics' community needs.
+
+An XLS export with all projects and users indicators is also available; it allow to perform custom 
+and advanced statistics using Microsoft Excel or LibreOffice softwares. 
+Otherwise a developer can code a REST client to perform specific advanced statistics queryies calling
+the REST API.
+
+**Warning**: `MAMA` is just focus on the analyses **requests**. The analyses management in a laboratory 
+shall be managed using a "Laboratory Information Management System" software (LIMS). 
+Still, MetaboHUB's consortium in-house LIMS softwares can exchange informations with `MAMA REST API`.
+
 <!-- Project data management -->
 ## Project data management
 
@@ -155,16 +177,18 @@ For consistency and "Quality Assurance" reasons, data can not be deleted (users 
 Users that want to stop to use MAMA services can still remove all personnal data from their profile whenever they want.
 Only users emails / LDAP login can not be updated or deleted.
 
-
 <!-- Indicators computing -->
 ## Indicators computing
 
-TODO - @npaulhe
+The REST API can compute any statistics with custom `filters` and `group` options. 
+Please refer to 2.4.12 section of the `WebServices Guide` - the MAMA REST API official documentation. 
+<!-- TODO we shall publish a version of this document with a DOI -->
+Warning: the authentication token must have the correct authorization to access to `GET /projects-statistics` path.
 
 <!-- Many complex and commercial solutions -->
 ## Many complex and commercial solutions
 
-TODO - @npaulhe
+TODO - @npaulhe / @fgiacomoni
 
 <!-- Dev simple web solution + API  -->
 ## Dev simple web solution + API
@@ -237,9 +261,15 @@ TODO - @npaulhe
 
 TODO - @npaulhe
 
+Even if we only use the `JSON` REST output, we also developed `XML` and basic `TEXT` ones. 
+Our goal was to open the REST API to any developers, all methods are listed in the 
+official documentation 
+
 ### Documentation
 
 TODO - @npaulhe
+
+<!-- TODO: link to published docker image? -->
 
 ### Open to contributions
 
@@ -248,16 +278,19 @@ TODO - @npaulhe
 ### Link to @fvinson tool?
 
 TODO - @npaulhe
+<!--
+plug third part tools on the rest api
+rShiny clients? -->
 
-## Figures
+# Features and figures
 
 TODO - @npaulhe
 
-### Global dashboard
+## Global dashboard
 
 TODO - @npaulhe
 
-### Indicators deashboard
+## Indicators deashboard
 
 TODO - @npaulhe
 
@@ -273,43 +306,6 @@ project and its team.
 A special thanks to Dr Justine Bertrand-Michel, Pr Dominique Rolin, Dr Stephanie Durand and
 all members involved in this MetaboHUB deliverable for their advices, tests and feedbacks on this project.
 
-<!--
-The WebApp's graphical user interfaces for "Create new request" form has been designed to support 
-Metabolomics analyses. The vocabulary and the data to submit is specific for this scientific field. 
-The web-form statics input can not be easley customisable (static HTML code) however some data like
-the consortium geographical sites or project's keywords are managed in the database; that allow MAMA's
-administator to easely add or update these tags.
-
-The last need for the consortium is to provide indicators and statistics to the French Research Agency
-("ANR - Agence Nationale de la Recherche"), an institute that fund the MetaboHUB consortium. 
-The main indicators are about the number of project per consortium node, the repatition of the projects
-types, the projects providing sources, the thematic keywords repartitions, \ldots 
-It is important for the consortium to track informations about "rejected analyses requests": this might 
-help it to focus on new data of expertise to better answer metabolomics' community needs.
-
-An XLS export with all projects and users indicators is also available; it allow to perform custom 
-and advanced statistics using Microsoft Excel or LibreOffice softwares. 
-Otherwise a developer can code a REST client to perform specific advanced statistics queryies calling
-the REST API.
-
-Warning: `MAMA` is just focus on the analyses **requests**. The analyses management in a laboratory 
-shall be managed using a "Laboratory Information Management System" software (LIMS). 
-Still, MetaboHUB's consortium in-house LIMS softwares can exchange informations with `MAMA REST API`.
--->
-<!-- 
-
--->
-<!-- TODO: link to published docker image? -->
-<!--
-Even if we only use the `JSON` REST output, we also developed `XML` and basic `TEXT` ones. 
-Our goal was to open the REST API to any developers, all methods are listed in the 
-official documentation 
--->
-<!-- TODO link to official REST doc -->
-
-<!-- # Tool capacities  -->
-<!-- results/discussion -->
-
 <!--The first objective of the application is to create a bridge between MetaboHUB 
 consortium nodes and its partners. Then these partners can follow their analyses 
 requests through the same application. 
@@ -318,51 +314,6 @@ The second objective was to provide statistics about MetaboHUB's partners and th
 analyses requests. -->
 
 <!-- ![Statistics example.\label{fig:statistics_example}](images/statistics_example.png){ width=80% } -->
-
-<!--
-plug third part tools on the rest api
-rShiny clients? -->
-
-<!--
-# Statement of need
-
-`Gala` is an Astropy-affiliated Python package for galactic dynamics. Python
-enables wrapping low-level languages (e.g., C) for speed without losing
-flexibility or ease-of-use in the user-interface. The API for `Gala` was
-designed to provide a class-based and user-friendly interface to fast (C or
-Cython-optimized) implementations of common operations such as gravitational
-potential and force evaluation, orbit integration, dynamical transformations,
-and chaos indicators for nonlinear dynamics. `Gala` also relies heavily on and
-interfaces well with the implementations of physical units and astronomical
-coordinate systems in the `Astropy` package [@astropy] (`astropy.units` and
-`astropy.coordinates`).
-
-`Gala` was designed to be used by both astronomical researchers and by
-students in courses on gravitational dynamics or astronomy. It has already been
-used in a number of scientific publications [@Pearson:2017] and has also been
-used in graduate courses on Galactic dynamics to, e.g., provide interactive
-visualizations of textbook material [@Binney:2008]. The combination of speed,
-design, and support for Astropy functionality in `Gala` will enable exciting
-scientific explorations of forthcoming data releases from the *Gaia* mission
-[@gaia] by students and experts alike.-->
-
-<!--
-# Mathematics
-
-Single dollars ($) are required for inline mathematics e.g. $f(x) = e^{\pi/x}$
-
-Double dollars make self-standing equations:
-
-$$\Theta(x) = \left\{\begin{array}{l}
-0\textrm{ if } x < 0\cr
-1\textrm{ else}
-\end{array}\right.$$
-
-You can also use plain \LaTeX for equations
-\begin{equation}\label{eq:fourier}
-\hat f(\omega) = \int_{-\infty}^{\infty} f(x) e^{i\omega x} dx
-\end{equation}
-and refer to \autoref{eq:fourier} from text.-->
 
 <!--
 # Citations
