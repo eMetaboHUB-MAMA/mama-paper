@@ -65,16 +65,15 @@ Warning: you need to update MAMA configuration files (`config/mama-config.ini` f
 # Statement of need
 
 <!-- Data management at a lab scale -->
-## Introduction - Data management at a lab scale
+## Introduction
 
-MetaboHUB is the French National Facility in Metabolomics & Fluxomics created in 2013. 
-It aims at providing state-of-the-art tools, services and support in metabolomics and 
-fluxomics to academic research teams and industrial partners in the fields of nutrition,
-health, agriculture and biotechnology [@rolin:hal-01002241]. 
+The MAMA team is working in the framework of the creation of a national network and infrastructure: MetaboHUB. MetaboHUB is the French National Facility in Metabolomics & Fluxomics created in 2013. It aims at providing state-of-the-art tools, services and support in metabolomics and fluxomics to academic research teams and industrial partners in the fields of nutrition, health, agriculture and biotechnology [@rolin:hal-01002241].
 
-The MetaboHUB consortium needed a specific tool in order to manage his partners requests. 
-The Bioinformatic Workpackage of the project developed this tool: a RESTful API and its WebApp, 
-under the "MAMA" label (stands for "**M**etaboHUB´s **A**nalyses **MA**nager"). 
+The idea of MAMA was born when the MetaboHUB consortium had to manage the flow of partner requests from a single portal. Building a specific tool based on a RESTful API and its WebApp gave birth to the "MAMA" project for "**M**etaboHUB's **A**nalyses **MA**nager". 
+
+
+<!-- Project data management -->
+## Project data management
 
 The request was to provide a light WebApp to:
 \begin{itemize}
@@ -107,8 +106,7 @@ the REST API.
 shall be managed using a "Laboratory Information Management System" software (LIMS). 
 Still, MetaboHUB's consortium in-house LIMS softwares can exchange informations with `MAMA REST API`.
 
-<!-- Project data management -->
-## Project data management
+
 
 As mentionned, we split the project in three layers
 
