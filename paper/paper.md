@@ -268,12 +268,18 @@ official documentation
 ### Documentation
 
 TODO - @npaulhe
-
+<!-- TODO: link to published PDF doc -->
 <!-- TODO: link to published docker image? -->
 
 ### Open to contributions
 
-TODO - @npaulhe
+All of our developments are released under an open source license and are open to contributions from the community. 
+We believe that open source software is essential for fostering innovation and collaboration, 
+and we welcome anyone who would like to contribute to my projects. 
+Whether you are a seasoned developer or just starting out, there are many ways to get involved, 
+including submitting bug reports, contributing code, or helping with documentation. 
+We believe that together we can create better software that benefits everyone, 
+and we are excited to work with others who share that vision.
 
 ### Link to @fvinson tool?
 
