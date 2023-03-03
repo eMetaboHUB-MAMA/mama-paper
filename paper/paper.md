@@ -270,13 +270,8 @@ TODO - @npaulhe
 
 ### Open to contributions
 
-All of our developments are released under an open source license and are open to contributions from the community. 
-We believe that open source software is essential for fostering innovation and collaboration, 
-and we welcome anyone who would like to contribute to my projects. 
-Whether you are a seasoned developer or just starting out, there are many ways to get involved, 
-including submitting bug reports, contributing code, or helping with documentation. 
-We believe that together we can create better software that benefits everyone, 
-and we are excited to work with others who share that vision.
+All MAMA developments are published under an open source license (MIT license).
+The MAMA team is open to contributions from the community. Please feel free to fork this code and contact us if you have any questions or problems.
 
 ### Link to @fvinson tool?
 
