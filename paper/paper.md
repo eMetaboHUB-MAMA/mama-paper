@@ -51,8 +51,8 @@ TODO - @npaulhe
 
 If you want to install and deploy your own MAMA instance server, 
 you can either directly clone `mama-rest` and `mama-webapp` git repositories (option 1) 
-or just pull matching Docker images and run these services as Docker containers (option 2).
-For both options you will need a MySQL database.
+or just pull reference Docker images and run these services as Docker containers (option 2).
+For both options you will need a MySQL database (refere to the documentation for the tool version and configuration).
 
 <!-- Code repository -->
 For option 1 "Code repository", please follow each repository `README.md` file instruction to
@@ -131,7 +131,21 @@ At each step of the analysis request processing, users and MAMA staff can enrich
 <!-- FAIR, controled vocabulary and RGPD -->
 ## FAIR, controlled vocabulary and RGPD
 
-TODO - @npaulhe
+Each entity of the data-model (analysis requests and users) get a unique identifier, used in both WebApp and REST-API URL process queries. 
+This strategy ensure us to be **F.A.I.R.** compliant [@wilkinson2016fair].
+
+![MAMA FAIR requirement.\label{fig:figure_faire_principes}](images/figure_faire_principes.png){ width=100% }
+
+Data can not be deleted in MAMA, so FAIR requirement **A2** is not relevent in our case. 
+For all other point, MAMA is very **F.A.I.R.** compliant.
+
+MAMA applications use a Metabolomics specific vocabulary. 
+It was necessary to be pretty accurate in order to describe **analysis requests** 
+however its create a very specialized software. 
+If any user wants to use this software outside of a metabolomics analysis field, 
+it should update vocabulary used in REST API URLs and GET parameters (require skill in PHP Slim framework) and in the data-model (to create a more consistent code).
+For the front-end, all texts displayed in WebApp are defined in javascript and HTML-Template files (it allow us to ensure a French and English localisation);
+It's easyer to update GUI vocabulary, just editing those files. 
 
 <!-- Indicators computing -->
 ## Indicators computing
