@@ -299,15 +299,7 @@ TODO - @npaulhe
 
 # Acknowledgements
 
-The `MAMA` project is supported by the French National Facility in Metabolomics & Fluxomics, 
-MetaboHUB (11-INBS-0010), launched by the French Ministry of Research and Higher Education 
-and the French ANR funding agency within the Programme "Investissements d’Avenir". 
-The authors thank all MetaboHUB nodes and French metabolomics facilities for their investment 
-in the development project. We also thank Professor D. Rolin for his continual support of the 
-project and its team.
-
-A special thanks to Dr Justine Bertrand-Michel, Pr Dominique Rolin, Dr Stephanie Durand and
-all members involved in this MetaboHUB deliverable for their advices, tests and feedbacks on this project.
+The `MAMA` project is supported by the French National Facility in Metabolomics & Fluxomics, MetaboHUB (11-INBS-0010), launched by the French Ministry of Research and Higher Education and the French ANR funding agency within the Programme "Investissements d’Avenir". The authors thank all MetaboHUB nodes and French metabolomics facilities for their investment in the development project. We also thank Dr Justine Bertrand-Michel, Pr Dominique Rolin, Dr Stephanie Durand for their advices, all tests and feedbacks on this project.
 
 <!--The first objective of the application is to create a bridge between MetaboHUB 
 consortium nodes and its partners. Then these partners can follow their analyses 
