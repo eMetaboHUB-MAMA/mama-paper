@@ -47,11 +47,6 @@ TODO - @npaulhe
 <!-- Results -->
 <!-- Conclusion -->
 
-<!-- As a part of the MetaboHUB project, the WebService access to the MAMA service is 
-integrated in the project’s forth Workpackage. It is possible for anyone to develop
-his own client component in order to call the WebService directly. The WebServire 
-base URL is: mama-rest.metabohub.fr. -->
-
 # Installation
 
 If you want to install and deploy your own MAMA instance server, 
@@ -96,15 +91,45 @@ The request was to provide a light WebApp to:
 <!-- Project data management -->
 ## Project data management
 
-TODO - @npaulhe
+As mentionned, we split the project in three layers
+
+\begin{itemize}
+    \item a MySQL database, used to store, organize, and manage software's data.
+    \item a REST API, the real "Core" of MAMA software, that process every queries.
+    \item a WebApp, light client of this REST API, used to provide a user-friendly GUI.
+\end{itemize}
 
 <!-- Portal with internal/external collaborator -->
 ## Portal with internal/external collaborator
 
-TODO - @npaulhe
+The WebApp is a bridge between our final users (biologists that need mebabolomics analysis) 
+and MetaboHUB's experts (that will accept or decline those analysis requests).
+
+End users can describe their metabolomics project (or "analysis request"): 
+
+\begin{itemize}
+    \item project generic title and description
+    \item project types - "Provision of equipment", "Provision of service - in routine", "Data processing and analysis" or "other"
+    \item in case of lab routine analysis, the number and sample to process
+    \item relevent keywords - help MetaboHUB's board to adress the project on one (or several) MetaboHUB's consortium platform(s)
+    \item scientific context short text description or desription of the scientific context into an attached file (PDF / DOC / ...)
+\end{itemize}
+
+All this informations will help MetaboHUB's staff...
+
+\begin{itemize}
+    \item to know if the request can be accepted or is out of the MetaboHUB expertise scope.
+    \item if the request is rejected, the reason of this rejections (to known potential new area of expertises to develop inside MetaboHUB's consortium).
+    \item if the request is accepted, discuss witch MetaboHUB plateform is the more qualified / relevent to perform it.
+    \item to get indicators and statics about MetaboHUB's analysis requests (see dedicated section below)
+    \item to extract a projects list thanks filters (and download it into a XLS file)
+\end{itemize}
+
+MAMA is a support for a dialog between MetaboHUB's users and team members.
+At each step of the analysis request processing, users and MAMA staff can enrich the project datasheet.
 
 <!-- FAIR, controled vocabulary and RGPD -->
-## FAIR, controled vocabulary and RGPD
+## FAIR, controlled vocabulary and RGPD
 
 TODO - @npaulhe
 
@@ -121,7 +146,10 @@ TODO - @npaulhe
 <!-- Dev simple web solution + API  -->
 ## Dev simple web solution + API
 
-TODO - @npaulhe
+As a part of the MetaboHUB project, the WebService access to the MAMA service is 
+integrated in the project’s forth Workpackage. It is possible for anyone to develop
+his own client component in order to call the WebService directly. The WebServire 
+base URL is: mama-rest.metabohub.fr.
 
 # Methods
 
@@ -164,23 +192,51 @@ ready to host the application.
 
 # Features
 
+TODO - @npaulhe
+
 ## WebApp
 
+TODO - @npaulhe
+
 ### Requests
+
+TODO - @npaulhe
+
 ### Projects follow-up
+
+TODO - @npaulhe
+
 ### Indicator
+
+TODO - @npaulhe
 
 ## REST APIs
 
-### Documentaiton
+TODO - @npaulhe
+
+### Documentation
+
+TODO - @npaulhe
+
 ### Open to contributions
+
+TODO - @npaulhe
+
 ### Link to @fvinson tool?
+
+TODO - @npaulhe
 
 ## Figures
 
+TODO - @npaulhe
+
 ### Global dashboard
 
-### Indicator deashboard
+TODO - @npaulhe
+
+### Indicators deashboard
+
+TODO - @npaulhe
 
 # Acknowledgements
 
