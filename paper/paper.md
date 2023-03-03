@@ -147,6 +147,15 @@ it should update vocabulary used in REST API URLs and GET parameters (require sk
 For the front-end, all texts displayed in WebApp are defined in javascript and HTML-Template files (it allow us to ensure a French and English localisation);
 It's easyer to update GUI vocabulary, just editing those files. 
 
+MAMA has been developed under European Union territory and juridiction, so it must follow RGPD directives [@RGPD:2016]. 
+Core developements were prior to the directives publications however we are compliant on all security points.
+We don't store password for LDAP user; for users with "email login" accounts, passwords are hashed with a secure recommended algorithm (we also use a random generated salt option).
+
+For consistency and "Quality Assurance" reasons, data can not be deleted (users accounts and analysis requests). 
+Users that want to stop to use MAMA services can still remove all personnal data from their profile whenever they want.
+Only users emails / LDAP login can not be updated or deleted.
+
+
 <!-- Indicators computing -->
 ## Indicators computing
 
