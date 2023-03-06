@@ -250,7 +250,7 @@ and an internal appointement / scheduling assistant.
 
 ### Requests
 
-TODO - @npaulhe
+NOTE ~ is it a duplicate of "Portal with internal/external collaborator" section?
 
 ### Projects follow-up
 
@@ -258,15 +258,15 @@ TODO - @npaulhe
 
 ### Indicator
 
-TODO - @npaulhe
+NOTE ~ is it a duplicate of "Indicators computing" section?
 
 ## REST APIs
 
 TODO - @npaulhe
 
-Even if we only use the `JSON` REST output, we also developed `XML` and basic `TEXT` ones. 
+Even if we only use the `JSON` REST output in the "MAMA - WebApp", we also developed `XML` and basic `TEXT` ones. 
 Our goal was to open the REST API to any developers, all methods are listed in the 
-official documentation 
+official documentation.
 
 ### Documentation
 
