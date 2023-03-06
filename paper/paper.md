@@ -228,9 +228,9 @@ The PHP dependency manager [Composer](https://getcomposer.org/) is required in o
 \begin{itemize}
     \item \textbf{slim} (PHP micro framework to write simple web applications and APIs)
     \item \textbf{doctrine} (database storage and object mapping based on Object Relational Mapper (ORM) and the Database Abstraction Layer (DBAL) concepts) 
-    \item \textbf{jobbyphp} (add cron expression to your PHP project \href{https://github.com/jobbyphp/jobby}{view on github})
-    \item \textbf{phpmailer} (send emails \href{https://github.com/PHPMailer/PHPMailer}{view on github})
-    \item \textbf{phpexcel} (create XLS files \href{https://packagist.org/packages/phpoffice/phpexcel}{view on website})
+    \item \textbf{jobbyphp} (add cron expression to your PHP project - \href{https://github.com/jobbyphp/jobby}{view on github})
+    \item \textbf{phpmailer} (send emails - \href{https://github.com/PHPMailer/PHPMailer}{view on github})
+    \item \textbf{phpexcel} (create XLS files - \href{https://packagist.org/packages/phpoffice/phpexcel}{view on website})
 \end{itemize}
 
 The "MAMA - REST" application require a MySQL database and a SMTP client to work properly. 
@@ -239,11 +239,14 @@ ready to host the application.
 
 # Features
 
-TODO - @npaulhe
+All WebApp / front-end queries are processed in MAMA REST-API. 
 
 ## WebApp
 
-TODO - @npaulhe
+The WebApp main feature is, for end-users, to subit analysis requests.
+For MetaboHUB's staff, it is used to follow up projects and compute indicators. 
+Their are secondaries features in the WebApp like an internal messaging system 
+and an internal appointement / scheduling assistant.
 
 ### Requests
 
@@ -273,8 +276,9 @@ TODO - @npaulhe
 
 ### Open to contributions
 
-All MAMA developments are published under an open source license (MIT license).
-The MAMA team is open to contributions from the community. Please feel free to fork this code and contact us if you have any questions or problems.
+All MAMA developments are published under an open source license (MIT license). 
+The MAMA team is open to contributions from the community. 
+Please feel free to fork this code and contact us if you have any questions or problems. 
 
 ### Link to @fvinson tool?
 
