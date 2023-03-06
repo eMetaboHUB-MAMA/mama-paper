@@ -196,7 +196,7 @@ TODO - @npaulhe / @fgiacomoni
 As a part of the MetaboHUB project, the WebService access to the MAMA service is 
 integrated in the project’s forth Workpackage. It is possible for anyone to develop
 his own client component in order to call the WebService directly. The WebServire 
-base URL is: mama-rest.metabohub.fr.
+base URL is: [mama-rest.metabohub.fr](https://mama-rest.metabohub.fr/?format=json).
 
 # Methods
 
@@ -293,24 +293,29 @@ TODO - @npaulhe
 
 ## Global dashboard
 
-TODO - @npaulhe
+Once authenticated, the WebApp's landing page is the "dashboad" view. 
+This view differ in function of users' authorizations. 
+This dashboard contains indicators about projects and access shortcuts to them.
+For admin, users indicators and statics are also displayed.
 
-## Indicators deashboard
+![User dashboard.\label{fig:dashboad_user}](images/dashboad_user.png){ width=80% }
 
-TODO - @npaulhe
+![Admin dashboard.\label{fig:dashboad_admin}](images/dashboad_admin.png){ width=80% }
 
-# Acknowledgements
+## Indicators dashboard
 
-The `MAMA` project is supported by the French National Facility in Metabolomics & Fluxomics, MetaboHUB (11-INBS-0010), launched by the French Ministry of Research and Higher Education and the French ANR funding agency within the Programme "Investissements d’Avenir". The authors thank all MetaboHUB nodes and French metabolomics facilities for their investment in the development project. We also thank Dr Justine Bertrand-Michel, Pr Dominique Rolin, Dr Stephanie Durand for their advices, all tests and feedbacks on this project.
-
-<!--The first objective of the application is to create a bridge between MetaboHUB 
+The first objective of the application is to create a bridge between MetaboHUB 
 consortium nodes and its partners. Then these partners can follow their analyses 
 requests through the same application. 
 
 The second objective was to provide statistics about MetaboHUB's partners and their
-analyses requests. -->
+analyses requests. 
 
-<!-- ![Statistics example.\label{fig:statistics_example}](images/statistics_example.png){ width=80% } -->
+![Statistics example.\label{fig:statistics_example}](images/statistics_example.png){ width=80% }
+
+# Acknowledgements
+
+The `MAMA` project is supported by the French National Facility in Metabolomics & Fluxomics, MetaboHUB (11-INBS-0010), launched by the French Ministry of Research and Higher Education and the French ANR funding agency within the Programme "Investissements d’Avenir". The authors thank all MetaboHUB nodes and French metabolomics facilities for their investment in the development project. We also thank Dr Justine Bertrand-Michel, Pr Dominique Rolin, Dr Stephanie Durand for their advices, all tests and feedbacks on this project.
 
 <!--
 # Citations
