@@ -59,14 +59,14 @@ To install and deploy a local MAMA instance server:
 please, clone `mama-rest` and `mama-webapp` git repositories (option 1)
 or just pull reference Docker images and run these services as Docker containers (option 2).
 
-For both options you need a MySQL database (refering to the documentation for the tool version and configuration).
+For both options you need a MySQL database (See MAMA documentation for recommanded version and configuration).
 
 <!-- Code repository -->
-For option 1 "Code repository", please follow each repository `README.md` file instruction to
+For option one, please follow each repository `README.md` file instruction to
 install and configure correctly third part tools, libraries and dependencies (Apache and PHP modules and versions). This option is recommanded if you want to fork the project and implement your own MAMA version.
 
 <!-- Docker image -->
-Option 2 "Docker image" is only recommended if you want to run the last version of the MAMA project. 
+The option two is only recommended if you want to run the lastest version of the MAMA project. 
 Warning: you need to update MAMA configuration files (`config/mama-config.ini` for `MAMA - REST` and `config/mama-webapp.json` for `MAMA WebApp`). We also advise to host configuration files on the server side and mount them into your Docker containers with `-v | --volumes` docker option or edit directly files in docker containers + `docker commit` changes. The Apache daemon must be restart to reload configuration updates in both containers).
 
 # Statement of need
