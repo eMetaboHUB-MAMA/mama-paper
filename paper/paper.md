@@ -76,20 +76,112 @@ Warning: you need to update MAMA configuration files (`config/mama-config.ini` f
 
 The MAMA team is working in the framework of the creation of a national network and infrastructure: MetaboHUB. MetaboHUB is the French National Facility in Metabolomics & Fluxomics created in 2013. It aims at providing state-of-the-art tools, services and support in metabolomics and fluxomics to academic research teams and industrial partners in the fields of nutrition, health, agriculture and biotechnology [@rolin:hal-01002241].
 
-The idea of MAMA was born when the MetaboHUB consortium had to manage the flow of partner requests from a single portal. Building a specific tool based on a RESTful API and its WebApp gave birth to the "MAMA" project for "**M**etaboHUB's **A**nalyses **MA**nager". 
+The idea of MAMA was born when the MetaboHUB consortium had to manage the flow of partner requests from a single portal. Building a specific tool based on a RESTful API and its Web application gave birth to the "MAMA" project for "**M**etaboHUB's **A**nalyses **MA**nager". 
 
 
 <!-- Project data management -->
 ## Project data management
 
-The request was to provide a light WebApp to:
+The MetaboHUB consortium worked on a fonctionnal specifications of a lightweight web application for managing data and metadata related to metabolomics projects, in particular:
 \begin{itemize}
-    \item gather the consortium's partners requests (analyses, training, equipment provisioning, \ldots)
-    \item split off requests on differents consortium geographical sites.
-    \item exchange informations about submited requests; between partners and the consortium, and 
-    between consortium nodes.
-    \item compute indicators and statics for the consortium funders
+	\item to centralise requests for analyses from future collaborators or partners of a laboratory or consortium (analyses, bioinformatics processing, training, provision of equipment); 
+	\item to arbitrate and distribute accepted requests between the different departments of a laboratory or geographical sites of a consortium; 
+	\item to exchange information on submitted requests (between partners and the laboratory, or between members of a consortium); 
+	\item to compute indicators to draw up reports for funding bodies.
 \end{itemize}
+
+**Warning**: `MAMA` is focus on the analyses requests part. The samples management in the laboratory shall be managed using a "Laboratory Information Management System" software (LIMS). In the MetaboHUB context, MAMA exchange informations with commercial LIMS softwares via its `MAMA REST API`.
+
+<!-- Portal with internal/external collaborator -->
+## A portal for internal/external collaborators
+
+The MAMA web application is designed as a bridge between the members of a laboratory or consortium and the users of that facility. Our use case here is that of biologists needing metabolomic analyses and experts from a multi-site consortium (chemists, bioinformaticians) handling these requests.
+
+<!-- FAIR and RGPD -->
+## FAIR and RGPD
+
+MetaboHUB is an active player in the open science movement and promotes the **F.A.I.R.** (Findability, Accessibility, Interoperability and Reusability) principles through the data management of its analytical and scientific activities and within its data science department. [@wilkinson2016fair]. MAMA was developed under the territory and jurisdiction of the European Union, and is therefore subject to the RGPD guidelines [@RGPD:2016].
+
+
+# Methods
+
+MAMA's architecture is based on two projects: a lightweight web application and a RESTful application programming interface (API). The web application relies on the REST API for all data requests. A PHP proxy is in charge of user session management.
+(as mentionned in \autoref{fig:project_structure}).
+
+![MAMA project structure.\label{fig:project_structure}](images/project_structure.png){ width=80% }
+
+## Web application code information
+
+The web application was developed at the beginning of 2016, before the diffusion in our domains of Web Components frameworks like Angular or Vue 2 (both launched in September 2016). Nonetheless, we wanted to develop an application taking up these concepts: a lightweight WebApp client that calls a RESTful API.
+
+Technically, MAMA is based on [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/), an open source admin dashboard template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This template uses the Twitter Bootstrap libraries and frameworks, jQuery and HighChart. We have forked the code of this proposed project through its [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/blob/gh-pages/LICENSE) license.
+
+## RESTful API code information
+
+The back-end was developed in PHP 7.4 and requires third-party libraries and frameworks to run. The required PHP modules are :
+
+\begin{itemize}
+    \item \textbf{slim} (PHP micro framework to write simple web applications and APIs)
+    \item \textbf{doctrine} (database storage and object mapping based on Object Relational Mapper (ORM) and the Database Abstraction Layer (DBAL) concepts) 
+    \item \textbf{jobbyphp} (add cron expression to your PHP project - \href{https://github.com/jobbyphp/jobby}{view on github})
+    \item \textbf{phpmailer} (send emails - \href{https://github.com/PHPMailer/PHPMailer}{view on github})
+    \item \textbf{phpexcel} (create XLS files - \href{https://packagist.org/packages/phpoffice/phpexcel}{view on website})
+\end{itemize}
+
+They are also listed in the project's README file in the `Requirements` section. PHP dependency management is based on [Composer](https://getcomposer.org/), ensuring that the correct versions of these modules are retrieved.
+
+The RESTful API requires a MySQL database and an SMTP client. These third party tools can be configured in a specific `*.ini` file. To facilitate the deployment of the project, the MAMA team provides a complete docker image of the application.
+
+# Features
+
+All WebApp / front-end queries are processed in MAMA REST-API. 
+
+## WebApp
+
+The WebApp main feature is, for end-users, to subit analysis requests.
+For MetaboHUB's staff, it is used to follow up projects and compute indicators. 
+Their are secondaries features in the WebApp like an internal messaging system 
+and an internal appointement / scheduling assistant.
+
+### Requests
+
+NOTE ~ is it a duplicate of "Portal with internal/external collaborator" section?
+
+### Projects follow-up
+
+TODO - @npaulhe
+
+### Indicator
+
+NOTE ~ is it a duplicate of "Indicators computing" section?
+
+## REST APIs
+
+TODO - @npaulhe
+
+Even if we only use the `JSON` REST output in the "MAMA - WebApp", we also developed `XML` and basic `TEXT` ones. 
+Our goal was to open the REST API to any developers, all methods are listed in the 
+official documentation.
+
+### Documentation
+
+TODO - @npaulhe
+<!-- TODO: link to published PDF doc -->
+<!-- TODO: link to published docker image? -->
+
+### Open to contributions
+
+All MAMA developments are published under an open source license (MIT license). 
+The MAMA team is open to contributions from the community. 
+Please feel free to fork this code and contact us if you have any questions or problems. 
+
+### Link to @fvinson tool?
+
+TODO - @npaulhe
+<!--
+plug third part tools on the rest api
+rShiny clients? -->
+
 
 The WebApp's graphical user interfaces for "Create new request" form has been designed to support 
 Metabolomics analyses. The vocabulary and the data to submit is specific for this scientific field. 
@@ -109,9 +201,7 @@ and advanced statistics using Microsoft Excel or LibreOffice softwares.
 Otherwise a developer can code a REST client to perform specific advanced statistics queryies calling
 the REST API.
 
-**Warning**: `MAMA` is just focus on the analyses **requests**. The analyses management in a laboratory 
-shall be managed using a "Laboratory Information Management System" software (LIMS). 
-Still, MetaboHUB's consortium in-house LIMS softwares can exchange informations with `MAMA REST API`.
+
 
 As mentionned, we split the project in three layers
 
@@ -121,11 +211,7 @@ As mentionned, we split the project in three layers
     \item a WebApp, light client of this REST API, used to provide a user-friendly GUI.
 \end{itemize}
 
-<!-- Portal with internal/external collaborator -->
-## Portal with internal/external collaborator
 
-The WebApp is a bridge between our final users (biologists that need mebabolomics analysis) 
-and MetaboHUB's experts (that will accept or decline those analysis requests).
 
 End users can describe their metabolomics project (or "analysis request"): 
 
@@ -198,94 +284,7 @@ integrated in the project’s forth Workpackage. It is possible for anyone to de
 his own client component in order to call the WebService directly. The WebServire 
 base URL is: [mama-rest.metabohub.fr](https://mama-rest.metabohub.fr/?format=json).
 
-# Methods
 
-We choose to split the project in a light WebApp and a RESTful API. The WebApp bounce on the REST
-API for all requests; this is a garanti for the developpers that all core intelligence is centralized in it.
-A tiny PHP proxy manage the user sessions to simplify client requests sending to the back-end 
-(as mentionned in \autoref{fig:project_structure}).
-
-![MAMA project structure.\label{fig:project_structure}](images/project_structure.png){ width=80% }
-
-## WebApp code part
-
-The WebApp has been developed in early 2016 before the major accession of WebComponents like Angular 
-or Vue 2 (both launched on september 2016). Still, we wanted to develop an Application with the same
-phylosophie: a light WebApp client that call a RESTful API.
-
-We used [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/), an open source, 
-admin dashboard template for [Bootstrap](http://getbootstrap.com/) created by 
-[Start Bootstrap](http://startbootstrap.com/). This template uses Twitter Bootstrap, jQuery and 
-HighChart libraries and frameworks. We "forked" the project code at our convinence thanks 
-its [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/blob/gh-pages/LICENSE) license.
-
-## REST API code part
-
-The back-end has been developed in PHP 7.4 and requirer third part libraries and frameworks to work. All PHP
-modules or system binaries are listed in the project's README file in the `Requirements` section.
-The PHP dependency manager [Composer](https://getcomposer.org/) is required in order fetch these frameworks with the correct version:
-
-\begin{itemize}
-    \item \textbf{slim} (PHP micro framework to write simple web applications and APIs)
-    \item \textbf{doctrine} (database storage and object mapping based on Object Relational Mapper (ORM) and the Database Abstraction Layer (DBAL) concepts) 
-    \item \textbf{jobbyphp} (add cron expression to your PHP project - \href{https://github.com/jobbyphp/jobby}{view on github})
-    \item \textbf{phpmailer} (send emails - \href{https://github.com/PHPMailer/PHPMailer}{view on github})
-    \item \textbf{phpexcel} (create XLS files - \href{https://packagist.org/packages/phpoffice/phpexcel}{view on website})
-\end{itemize}
-
-The "MAMA - REST" application require a MySQL database and a SMTP client to work properly. 
-These third part tool can be configured in a specific `ini` file. We provide a docker image 
-ready to host the application. 
-
-# Features
-
-All WebApp / front-end queries are processed in MAMA REST-API. 
-
-## WebApp
-
-The WebApp main feature is, for end-users, to subit analysis requests.
-For MetaboHUB's staff, it is used to follow up projects and compute indicators. 
-Their are secondaries features in the WebApp like an internal messaging system 
-and an internal appointement / scheduling assistant.
-
-### Requests
-
-NOTE ~ is it a duplicate of "Portal with internal/external collaborator" section?
-
-### Projects follow-up
-
-TODO - @npaulhe
-
-### Indicator
-
-NOTE ~ is it a duplicate of "Indicators computing" section?
-
-## REST APIs
-
-TODO - @npaulhe
-
-Even if we only use the `JSON` REST output in the "MAMA - WebApp", we also developed `XML` and basic `TEXT` ones. 
-Our goal was to open the REST API to any developers, all methods are listed in the 
-official documentation.
-
-### Documentation
-
-TODO - @npaulhe
-<!-- TODO: link to published PDF doc -->
-<!-- TODO: link to published docker image? -->
-
-### Open to contributions
-
-All MAMA developments are published under an open source license (MIT license). 
-The MAMA team is open to contributions from the community. 
-Please feel free to fork this code and contact us if you have any questions or problems. 
-
-### Link to @fvinson tool?
-
-TODO - @npaulhe
-<!--
-plug third part tools on the rest api
-rShiny clients? -->
 
 # Features and figures
 
