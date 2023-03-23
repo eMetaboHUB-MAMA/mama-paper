@@ -105,7 +105,7 @@ MetaboHUB is an active player in the open science movement and promotes the **F.
 
 # Methods
 
-MAMA's architecture is based on two projects: a lightweight web application and a RESTful application programming interface (API). The web application relies on the REST API for all data requests. A PHP proxy is in charge of user session management.
+MAMA's architecture is based on two projects: a lightweight web application and a RESTful application programming interface (API). The web application relies on the REST API for all data requests. A PHP proxy is in charge of user session management. All WebApp / front-end queries are processed in MAMA REST-API.
 (as mentionned in \autoref{fig:project_structure}).
 
 ![MAMA project structure.\label{fig:project_structure}](images/project_structure.png){ width=80% }
@@ -134,18 +134,40 @@ The RESTful API requires a MySQL database and an SMTP client. These third party 
 
 # Features
 
-All WebApp / front-end queries are processed in MAMA REST-API. 
+## Analysis request submission
 
-## WebApp
+One of the main features of the web application is to allow users to submit and view requests for analyses. The graphical interface of the "Create a new request" form has been designed to specifically support metabolomics analyses. Specific work has been carried out to select the vocabulary and data types. 
+It should be noted that the forms will not be easily customisable (static HTML code) but some data such as the geographical sites of the consortium or the keywords used to define the projects are managed in the database allowing a MAMA administrator to easily add or update these tags.
 
-The WebApp main feature is, for end-users, to subit analysis requests.
-For MetaboHUB's staff, it is used to follow up projects and compute indicators. 
+Through the web application, external collaborators can then describe their metabolomics project (or "analysis request") with the following information:
+
+\begin{itemize}
+    \item generic title and description of the project;
+    \item project types - "Equipment provision", "Service provision - routine", "Data processing and analysis" or "other";
+    \item in the case of routine laboratory analysis, the number and sample to be processed;
+    \item relevant keywords - help the laboratory board to refer the project to the most appropriate platform(s) or service(s);
+    \item scientific background short text description or description of the scientific background in an attached file (supporting formats `*.pdf` or `*.docx`).
+\end{itemize}
+
+All these information will help the laboratory:
+
+\begin{itemize}
+    \item To know if the application can be accepted or if it is outside the laboratory's field of expertise;
+    \item If the application is rejected, the reason for this rejection (to know the potential new areas of expertise to be developed within the laboratory or consortium);
+    \item If the application is accepted, discuss which platform is most qualified/relevant to carry it out;
+    \item Calculate indicators on the analysis requests (see dedicated section below);
+    \item Extract a list of projects through filters (and download it in a `*.xlsx` file).
+\end{itemize}
+
+
+
+### Requests dashboard
+
+For laboratory's staff, it is used to follow up projects and compute indicators. 
+
+
 Their are secondaries features in the WebApp like an internal messaging system 
 and an internal appointement / scheduling assistant.
-
-### Requests
-
-NOTE ~ is it a duplicate of "Portal with internal/external collaborator" section?
 
 ### Projects follow-up
 
@@ -183,11 +205,7 @@ plug third part tools on the rest api
 rShiny clients? -->
 
 
-The WebApp's graphical user interfaces for "Create new request" form has been designed to support 
-Metabolomics analyses. The vocabulary and the data to submit is specific for this scientific field. 
-The web-form statics input can not be easley customisable (static HTML code) however some data like
-the consortium geographical sites or project's keywords are managed in the database; that allow MAMA's
-administator to easely add or update these tags.
+
 
 The last need for the consortium is to provide indicators and statistics to the French Research Agency
 ("ANR - Agence Nationale de la Recherche"), an institute that fund the MetaboHUB consortium. 
@@ -213,25 +231,7 @@ As mentionned, we split the project in three layers
 
 
 
-End users can describe their metabolomics project (or "analysis request"): 
 
-\begin{itemize}
-    \item project generic title and description
-    \item project types - "Provision of equipment", "Provision of service - in routine", "Data processing and analysis" or "other"
-    \item in case of lab routine analysis, the number and sample to process
-    \item relevent keywords - help MetaboHUB's board to adress the project on one (or several) MetaboHUB's consortium platform(s)
-    \item scientific context short text description or desription of the scientific context into an attached file (PDF / DOC / ...)
-\end{itemize}
-
-All this informations will help MetaboHUB's staff...
-
-\begin{itemize}
-    \item to know if the request can be accepted or is out of the MetaboHUB expertise scope.
-    \item if the request is rejected, the reason of this rejections (to known potential new area of expertises to develop inside MetaboHUB's consortium).
-    \item if the request is accepted, discuss witch MetaboHUB plateform is the more qualified / relevent to perform it.
-    \item to get indicators and statics about MetaboHUB's analysis requests (see dedicated section below)
-    \item to extract a projects list thanks filters (and download it into a XLS file)
-\end{itemize}
 
 MAMA is a support for a dialog between MetaboHUB's users and team members.
 At each step of the analysis request processing, users and MAMA staff can enrich the project datasheet.
