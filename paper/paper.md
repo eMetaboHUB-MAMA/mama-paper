@@ -76,7 +76,7 @@ Warning: you need to update MAMA configuration files (`config/mama-config.ini` f
 
 The MAMA team is working in the framework of the creation of a national network and infrastructure: MetaboHUB. MetaboHUB is the French National Facility in Metabolomics & Fluxomics created in 2013. It aims at providing state-of-the-art tools, services and support in metabolomics and fluxomics to academic research teams and industrial partners in the fields of nutrition, health, agriculture and biotechnology [@rolin:hal-01002241].
 
-The idea of MAMA was born when the MetaboHUB consortium had to manage the flow of partner requests from a single portal. Building a specific tool based on a RESTful API and its Web application gave birth to the "MAMA" project for "**M**etaboHUB's **A**nalyses **MA**nager". 
+The idea of MAMA was born when the MetaboHUB consortium had to manage the flow of partner requests from a single portal. Building a specific tool based on a RESTful API and its Web application gave birth to the "MAMA" project for "**M**etaboHUB's **A**nalyses **MA**nager". Now, The MAMA project becomes **M**etabolomics **A**nalysis **MA**nager an application for managing projects and requests for laboratory analyses developed in the framework of a national research infrastructure.
 
 
 <!-- Project data management -->
@@ -128,11 +128,14 @@ The back-end was developed in PHP 7.4 and requires third-party libraries and fra
     \item \textbf{phpexcel} (create XLS files - \href{https://packagist.org/packages/phpoffice/phpexcel}{view on website})
 \end{itemize}
 
-They are also listed in the project's README file in the `Requirements` section. PHP dependency management is based on [Composer](https://getcomposer.org/), ensuring that the correct versions of these modules are retrieved.
+Modules are also listed in the project's README file in the `Requirements` section. PHP dependency management is based on [Composer](https://getcomposer.org/), ensuring that the correct versions of these modules are retrieved.
 
 The RESTful API requires a MySQL database and an SMTP client. These third party tools can be configured in a specific `*.ini` file. To facilitate the deployment of the project, the MAMA team provides a complete docker image of the application.
 
 # Features
+
+The application serves as an interface between laboratories or metabolomics platforms offering services. It can be configured to present the types of analyses offered and the workflows for processing the user's request. It allows the management of user accounts and staff accounts with different levels of roles in relation to project management. Projects are partitioned to each user and advanced rights management allows the personnel assigned to each project to be limited.
+
 
 ## Analysis request submission
 
@@ -159,23 +162,20 @@ All these information will help the laboratory:
     \item Extract a list of projects through filters (and download it in a `*.xlsx` file).
 \end{itemize}
 
+## Projects management dashboard
 
+As soon as a user is logged in, he/she is presented with a view of the projects organised in the form of a dashboard. This view will differ depending on the user's permissions offering either a "partner dashboard" or a "laboratory staff dashboard" allowing you to see all submitted projects, their status and the teams involved. For the laboratory staff, it also includes secondary functionalities such as an internal messaging system and a planning assistant. This dashboard contains indicators on projects and shortcuts to access them. For users with the highest security permissions, indicators on all users are also displayed.
 
-### Requests dashboard
+![User dashboard.\label{fig:dashboad_user}](images/dashboad_user.png){ width=80% }
 
-For laboratory's staff, it is used to follow up projects and compute indicators. 
+![Admin dashboard.\label{fig:dashboad_admin}](images/dashboad_admin.png){ width=80% }
 
+## Indicators
 
-Their are secondaries features in the WebApp like an internal messaging system 
-and an internal appointement / scheduling assistant.
+Interfaces allow the extraction of different indicators relating to numbers and types of projects or application areas. The choice of indicators is based on the team's experience in providing the metadata needed for annual project or platform reviews. Among these main indicators, MAMA calculates the number of projects by geographical location, the distribution of different types of projects, the sources of funding, or the distributions by thematic keywords. An export in Microsoft Office Excel or LibreOffice format with all project and user indicators is also available, allowing for customised and advanced statistics. These indicators are also accessible and searchable by the REST API. The REST API can compute any statistics with custom `filters` and `group` options. Please refer to the `WebServices Guide` in the MAMA REST API official documentation. Warning: the authentication token must have the correct authorization to access to `GET /projects-statistics` path.
 
-### Projects follow-up
+![Indicators example.\label{fig:statistics_example}](images/statistics_example.png){ width=80% }
 
-TODO - @npaulhe
-
-### Indicator
-
-NOTE ~ is it a duplicate of "Indicators computing" section?
 
 ## REST APIs
 
@@ -185,56 +185,30 @@ Even if we only use the `JSON` REST output in the "MAMA - WebApp", we also devel
 Our goal was to open the REST API to any developers, all methods are listed in the 
 official documentation.
 
-### Documentation
+# Conclusion
 
 TODO - @npaulhe
-<!-- TODO: link to published PDF doc -->
-<!-- TODO: link to published docker image? -->
 
-### Open to contributions
+# Open to contributions
 
-All MAMA developments are published under an open source license (MIT license). 
-The MAMA team is open to contributions from the community. 
-Please feel free to fork this code and contact us if you have any questions or problems. 
+All MAMA developments are published under an open source license (MIT license). The MAMA team is open to contributions from the community. Please feel free to fork this code and contact us if you have any questions or problems.
 
-### Link to @fvinson tool?
+# Acknowledgements
 
-TODO - @npaulhe
-<!--
-plug third part tools on the rest api
-rShiny clients? -->
-
-
-
-
-The last need for the consortium is to provide indicators and statistics to the French Research Agency
-("ANR - Agence Nationale de la Recherche"), an institute that fund the MetaboHUB consortium. 
-The main indicators are about the number of project per consortium node, the repatition of the projects
-types, the projects providing sources, the thematic keywords repartitions, \ldots 
-It is important for the consortium to track informations about "rejected analyses requests": this might 
-help it to focus on new data of expertise to better answer metabolomics' community needs.
-
-An XLS export with all projects and users indicators is also available; it allow to perform custom 
-and advanced statistics using Microsoft Excel or LibreOffice softwares. 
-Otherwise a developer can code a REST client to perform specific advanced statistics queryies calling
-the REST API.
-
-
-
-As mentionned, we split the project in three layers
-
-\begin{itemize}
-    \item a MySQL database, used to store, organize, and manage software's data.
-    \item a REST API, the real "Core" of MAMA software, that process every queries.
-    \item a WebApp, light client of this REST API, used to provide a user-friendly GUI.
-\end{itemize}
+The `MAMA` project is supported by the French national metabolomics and fluxomics facility, MetaboHUB (11-INBS-0010), launched by the French Ministry of Research and Higher Education and the French funding agency ANR under the "Investissements d'Avenir" programme. The authors thank all MetaboHUB nodes and French metabolomics centres for their investment in the development project. We also thank Dr Justine Bertrand-Michel, Pr Dominique Rolin, Dr Stephanie Durand for their advice, all the tests and feedback on this project.
 
 
 
 
 
-MAMA is a support for a dialog between MetaboHUB's users and team members.
-At each step of the analysis request processing, users and MAMA staff can enrich the project datasheet.
+
+
+
+
+
+
+
+
 
 <!-- FAIR, controled vocabulary and RGPD -->
 ## FAIR, controlled vocabulary and RGPD
@@ -263,58 +237,6 @@ For consistency and "Quality Assurance" reasons, data can not be deleted (users 
 Users that want to stop to use MAMA services can still remove all personnal data from their profile whenever they want.
 Only users emails / LDAP login can not be updated or deleted.
 
-<!-- Indicators computing -->
-## Indicators computing
-
-The REST API can compute any statistics with custom `filters` and `group` options. 
-Please refer to 2.4.12 section of the `WebServices Guide` - the MAMA REST API official documentation. 
-<!-- TODO we shall publish a version of this document with a DOI -->
-Warning: the authentication token must have the correct authorization to access to `GET /projects-statistics` path.
-
-<!-- Many complex and commercial solutions -->
-## Many complex and commercial solutions
-
-TODO - @npaulhe / @fgiacomoni
-
-<!-- Dev simple web solution + API  -->
-## Dev simple web solution + API
-
-As a part of the MetaboHUB project, the WebService access to the MAMA service is 
-integrated in the project’s forth Workpackage. It is possible for anyone to develop
-his own client component in order to call the WebService directly. The WebServire 
-base URL is: [mama-rest.metabohub.fr](https://mama-rest.metabohub.fr/?format=json).
-
-
-
-# Features and figures
-
-TODO - @npaulhe
-
-## Global dashboard
-
-Once authenticated, the WebApp's landing page is the "dashboad" view. 
-This view differ in function of users' authorizations. 
-This dashboard contains indicators about projects and access shortcuts to them.
-For admin, users indicators and statics are also displayed.
-
-![User dashboard.\label{fig:dashboad_user}](images/dashboad_user.png){ width=80% }
-
-![Admin dashboard.\label{fig:dashboad_admin}](images/dashboad_admin.png){ width=80% }
-
-## Indicators dashboard
-
-The first objective of the application is to create a bridge between MetaboHUB 
-consortium nodes and its partners. Then these partners can follow their analyses 
-requests through the same application. 
-
-The second objective was to provide statistics about MetaboHUB's partners and their
-analyses requests. 
-
-![Statistics example.\label{fig:statistics_example}](images/statistics_example.png){ width=80% }
-
-# Acknowledgements
-
-The `MAMA` project is supported by the French National Facility in Metabolomics & Fluxomics, MetaboHUB (11-INBS-0010), launched by the French Ministry of Research and Higher Education and the French ANR funding agency within the Programme "Investissements d’Avenir". The authors thank all MetaboHUB nodes and French metabolomics facilities for their investment in the development project. We also thank Dr Justine Bertrand-Michel, Pr Dominique Rolin, Dr Stephanie Durand for their advices, all tests and feedbacks on this project.
 
 <!--
 # Citations
