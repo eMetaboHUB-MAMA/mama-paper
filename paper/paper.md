@@ -107,7 +107,6 @@ MetaboHUB is an active player in the open science movement and promotes the **F.
 principles through the data management of its analytical and scientific activities and within its data science department [@wilkinson2016fair]. 
 
 Each entity of the data-model (analysis requests and users) get a unique identifier, used in both WebApp and REST-API URL process queries. 
-This strategy ensure us to be **F.A.I.R.** compliant [@wilkinson2016fair].
 
 ![MAMA FAIR requirement.\label{fig:figure_faire_principes}](images/figure_faire_principes.png){ width=100% }
 
