@@ -95,26 +95,60 @@ The MetaboHUB consortium worked on a fonctionnal specifications of a lightweight
 <!-- Portal with internal/external collaborator -->
 ## A portal for internal/external collaborators
 
-The MAMA web application is designed as a bridge between the members of a laboratory or consortium and the users of that facility. Our use case here is that of biologists needing metabolomic analyses and experts from a multi-site consortium (chemists, bioinformaticians) handling these requests.
+The MAMA web application is designed as a bridge between the members of a laboratory or consortium and the users of that facility. 
+Our use case here is that of biologists needing metabolomic analyses and experts from a multi-site consortium (chemists, bioinformaticians) handling these requests.
 
 <!-- FAIR and RGPD -->
-## FAIR and RGPD
+# FAIR, controlled vocabulary and RGPD
 
-MetaboHUB is an active player in the open science movement and promotes the **F.A.I.R.** (Findability, Accessibility, Interoperability and Reusability) principles through the data management of its analytical and scientific activities and within its data science department. [@wilkinson2016fair]. MAMA was developed under the territory and jurisdiction of the European Union, and is therefore subject to the RGPD guidelines [@RGPD:2016].
+## FAIR
 
+MetaboHUB is an active player in the open science movement and promotes the **F.A.I.R.** (Findability, Accessibility, Interoperability and Reusability) 
+principles through the data management of its analytical and scientific activities and within its data science department [@wilkinson2016fair]. 
+
+Each entity of the data-model (analysis requests and users) get a unique identifier, used in both WebApp and REST-API URL process queries. 
+This strategy ensure us to be **F.A.I.R.** compliant [@wilkinson2016fair].
+
+![MAMA FAIR requirement.\label{fig:figure_faire_principes}](images/figure_faire_principes.png){ width=100% }
+
+Data can not be deleted in MAMA, so FAIR requirement **A2** is not relevent in our case. 
+For all other point, MAMA is very **F.A.I.R.** compliant.
+
+## Controlled vocabulary
+
+MAMA applications use a Metabolomics specific vocabulary. 
+It was necessary to be pretty accurate in order to describe **analysis requests** however its create a very specialized software. 
+If any user wants to use this software outside of a metabolomics analysis field, 
+it should update vocabulary used in REST API URLs and GET parameters (require skill in PHP Slim framework) and in the data-model (to create a more consistent code).
+For the front-end, all texts displayed in WebApp are defined in javascript and HTML-Template files (it allow us to ensure a French and English localisations);
+It's easyer to update GUI vocabulary, just editing those files. 
+
+## RGPD
+
+MAMA was developed under the territory and jurisdiction of the European Union, and is therefore subject to the RGPD guidelines [@RGPD:2016].
+Core developements were prior to the directives publications however we are compliant on all security points.
+We don't store password for LDAP user; for users with "email login" accounts, passwords are hashed with a secure recommended algorithm (we also use a random generated salt option).
+
+For consistency and "Quality Assurance" reasons, data can not be deleted (users accounts and analysis requests). 
+Users that want to stop to use MAMA services can still remove all personnal data from their profile whenever they want.
+Only users emails / LDAP login can not be updated or deleted.
 
 # Methods
 
-MAMA's architecture is based on two projects: a lightweight web application and a RESTful application programming interface (API). The web application relies on the REST API for all data requests. A PHP proxy is in charge of user session management. All WebApp / front-end queries are processed in MAMA REST-API.
+MAMA's architecture is based on two projects: a lightweight web application and a RESTful application programming interface (API). 
+The web application relies on the REST API for all data requests. 
+A PHP proxy is in charge of user session management. All WebApp / front-end queries are processed in MAMA REST-API.
 (as mentionned in \autoref{fig:project_structure}).
 
 ![MAMA project structure.\label{fig:project_structure}](images/project_structure.png){ width=80% }
 
 ## Web application code information
 
-The web application was developed at the beginning of 2016, before the diffusion in our domains of Web Components frameworks like Angular or Vue 2 (both launched in September 2016). Nonetheless, we wanted to develop an application taking up these concepts: a lightweight WebApp client that calls a RESTful API.
+The web application was developed at the beginning of 2016, before the diffusion in our domains of Web Components frameworks like Angular or Vue 2 (both launched in September 2016). 
+Nonetheless, we wanted to develop an application taking up these concepts: a lightweight WebApp client that calls a RESTful API.
 
-Technically, MAMA is based on [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/), an open source admin dashboard template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This template uses the Twitter Bootstrap libraries and frameworks, jQuery and HighChart. We have forked the code of this proposed project through its [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/blob/gh-pages/LICENSE) license.
+Technically, MAMA is based on [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/), an open source admin dashboard template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This template uses the Twitter Bootstrap libraries and frameworks, jQuery and HighChart. 
+We have forked the code of this proposed project through its [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/blob/gh-pages/LICENSE) license.
 
 ## RESTful API code information
 
@@ -128,18 +162,28 @@ The back-end was developed in PHP 7.4 and requires third-party libraries and fra
     \item \textbf{phpexcel} (create XLS files - \href{https://packagist.org/packages/phpoffice/phpexcel}{view on website})
 \end{itemize}
 
-Modules are also listed in the project's README file in the `Requirements` section. PHP dependency management is based on [Composer](https://getcomposer.org/), ensuring that the correct versions of these modules are retrieved.
+Modules are also listed in the project's README file in the `Requirements` section. PHP dependency management is based on [Composer](https://getcomposer.org/), 
+ensuring that the correct versions of these modules are retrieved.
 
-The RESTful API requires a MySQL database and an SMTP client. These third party tools can be configured in a specific `*.ini` file. To facilitate the deployment of the project, the MAMA team provides a complete docker image of the application.
+The RESTful API requires a MySQL database and an SMTP client. These third party tools can be configured in a specific `*.ini` file. 
+To facilitate the deployment of the project, the MAMA team provides a complete docker image of the application.
+
+Even if we only use the `JSON` REST output in the "MAMA - WebApp", we also developed `XML` and basic `TEXT` ones. 
+Our goal was to open the REST API to any developers, all methods are listed in the 
+official documentation.
 
 # Features
 
-The application serves as an interface between laboratories or metabolomics platforms offering services. It can be configured to present the types of analyses offered and the workflows for processing the user's request. It allows the management of user accounts and staff accounts with different levels of roles in relation to project management. Projects are partitioned to each user and advanced rights management allows the personnel assigned to each project to be limited.
-
+The application serves as an interface between laboratories or metabolomics platforms offering services. 
+It can be configured to present the types of analyses offered and the workflows for processing the user's request. 
+It allows the management of user accounts and staff accounts with different levels of roles in relation to project management. 
+Projects are partitioned to each user and advanced rights management allows the personnel assigned to each project to be limited.
 
 ## Analysis request submission
 
-One of the main features of the web application is to allow users to submit and view requests for analyses. The graphical interface of the "Create a new request" form has been designed to specifically support metabolomics analyses. Specific work has been carried out to select the vocabulary and data types. 
+One of the main features of the web application is to allow users to submit and view requests for analyses. 
+The graphical interface of the "Create a new request" form has been designed to specifically support metabolomics analyses. 
+Specific work has been carried out to select the vocabulary and data types. 
 It should be noted that the forms will not be easily customisable (static HTML code) but some data such as the geographical sites of the consortium or the keywords used to define the projects are managed in the database allowing a MAMA administrator to easily add or update these tags.
 
 Through the web application, external collaborators can then describe their metabolomics project (or "analysis request") with the following information:
@@ -172,71 +216,33 @@ As soon as a user is logged in, he/she is presented with a view of the projects 
 
 ## Indicators
 
-Interfaces allow the extraction of different indicators relating to numbers and types of projects or application areas. The choice of indicators is based on the team's experience in providing the metadata needed for annual project or platform reviews. Among these main indicators, MAMA calculates the number of projects by geographical location, the distribution of different types of projects, the sources of funding, or the distributions by thematic keywords. An export in Microsoft Office Excel or LibreOffice format with all project and user indicators is also available, allowing for customised and advanced statistics. These indicators are also accessible and searchable by the REST API. The REST API can compute any statistics with custom `filters` and `group` options. Please refer to the `WebServices Guide` in the MAMA REST API official documentation. Warning: the authentication token must have the correct authorization to access to `GET /projects-statistics` path.
+Interfaces allow the extraction of different indicators relating to numbers and types of projects or application areas. 
+The choice of indicators is based on the team's experience in providing the metadata needed for annual project or platform reviews. 
+Among these main indicators, MAMA calculates the number of projects by geographical location, the distribution of different types of projects, the sources of funding, or the distributions by thematic keywords. 
+An export in Microsoft Office Excel or LibreOffice format with all project and user indicators is also available, allowing for customised and advanced statistics. 
+These indicators are also accessible and searchable by the REST API. 
+The REST API can compute any statistics with custom `filters` and `group` options. 
+Please refer to the `WebServices Guide` in the MAMA REST API official documentation. Warning: the authentication token must have the correct authorization to access to `GET /projects-statistics` path.
 
 ![Indicators example.\label{fig:statistics_example}](images/statistics_example.png){ width=80% }
 
-
-## REST APIs
-
-TODO - @npaulhe
-
-Even if we only use the `JSON` REST output in the "MAMA - WebApp", we also developed `XML` and basic `TEXT` ones. 
-Our goal was to open the REST API to any developers, all methods are listed in the 
-official documentation.
-
 # Conclusion
 
-TODO - @npaulhe
+MAMA provides a robust and user-friendly solution for managing metabolomics analysis requests. 
+Its features, architecture, and design have been carefully crafted to address the specific needs of metabolomics researchers. 
+We believe that the open-source community will greatly benefit from MAMA, and we encourage active participation and contributions to further enhance its capabilities.
 
 # Open to contributions
 
-All MAMA developments are published under an open source license (MIT license). The MAMA team is open to contributions from the community. Please feel free to fork this code and contact us if you have any questions or problems.
+All MAMA developments are published under an open source license (MIT license). 
+The MAMA team is open to contributions from the community. 
+Please feel free to fork this code and contact us if you have any questions or problems.
 
 # Acknowledgements
 
-The `MAMA` project is supported by the French national metabolomics and fluxomics facility, MetaboHUB (11-INBS-0010), launched by the French Ministry of Research and Higher Education and the French funding agency ANR under the "Investissements d'Avenir" programme. The authors thank all MetaboHUB nodes and French metabolomics centres for their investment in the development project. We also thank Dr Justine Bertrand-Michel, Pr Dominique Rolin, Dr Stephanie Durand for their advice, all the tests and feedback on this project.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- FAIR, controled vocabulary and RGPD -->
-## FAIR, controlled vocabulary and RGPD
-
-Each entity of the data-model (analysis requests and users) get a unique identifier, used in both WebApp and REST-API URL process queries. 
-This strategy ensure us to be **F.A.I.R.** compliant [@wilkinson2016fair].
-
-![MAMA FAIR requirement.\label{fig:figure_faire_principes}](images/figure_faire_principes.png){ width=100% }
-
-Data can not be deleted in MAMA, so FAIR requirement **A2** is not relevent in our case. 
-For all other point, MAMA is very **F.A.I.R.** compliant.
-
-MAMA applications use a Metabolomics specific vocabulary. 
-It was necessary to be pretty accurate in order to describe **analysis requests** 
-however its create a very specialized software. 
-If any user wants to use this software outside of a metabolomics analysis field, 
-it should update vocabulary used in REST API URLs and GET parameters (require skill in PHP Slim framework) and in the data-model (to create a more consistent code).
-For the front-end, all texts displayed in WebApp are defined in javascript and HTML-Template files (it allow us to ensure a French and English localisation);
-It's easyer to update GUI vocabulary, just editing those files. 
-
-MAMA has been developed under European Union territory and juridiction, so it must follow RGPD directives [@RGPD:2016]. 
-Core developements were prior to the directives publications however we are compliant on all security points.
-We don't store password for LDAP user; for users with "email login" accounts, passwords are hashed with a secure recommended algorithm (we also use a random generated salt option).
-
-For consistency and "Quality Assurance" reasons, data can not be deleted (users accounts and analysis requests). 
-Users that want to stop to use MAMA services can still remove all personnal data from their profile whenever they want.
-Only users emails / LDAP login can not be updated or deleted.
-
+The `MAMA` project is supported by the French national metabolomics and fluxomics facility, MetaboHUB (11-INBS-0010), launched by the French Ministry of Research and Higher Education and the French funding agency ANR under the "Investissements d'Avenir" programme. 
+The authors thank all MetaboHUB nodes and French metabolomics centres for their investment in the development project. 
+We also thank Dr Justine Bertrand-Michel, Pr Dominique Rolin, Dr Stephanie Durand for their advice, all the tests and feedback on this project.
 
 <!--
 # Citations
@@ -262,7 +268,5 @@ and referenced from text using \autoref{fig:figure1}.
 
 Figure sizes can be customized by adding an optional second parameter:
 ![Caption for example figure.](images/figure.png){ width=20% }-->
-
-
 
 # References
