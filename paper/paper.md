@@ -99,9 +99,9 @@ The option two is only recommended if you want to run the lastest version of the
 Warning: you need to update MAMA configuration files (`config/mama-config.ini` for `MAMA - REST` and `config/mama-webapp.json` for `MAMA WebApp`). We also advise to host configuration files on the server side and mount them into your Docker containers with `-v | --volumes` docker option or edit directly files in docker containers + `docker commit` changes. The Apache daemon must be restart to reload configuration updates in both containers).
 
 <!-- FAIR and RGPD -->
-# FAIR, controlled vocabulary and RGPD
+# RGPD
 
-## FAIR
+<!--## FAIR
 
 MetaboHUB is an active player in the open science movement and promotes the **F.A.I.R.** (Findability, Accessibility, Interoperability and Reusability) 
 principles through the data management of its analytical and scientific activities and within its data science department [@wilkinson2016fair]. 
@@ -122,7 +122,7 @@ it should update vocabulary used in REST API URLs and GET parameters (require sk
 For the front-end, all texts displayed in WebApp are defined in javascript and HTML-Template files (it allow us to ensure a French and English localisations);
 It's easyer to update GUI vocabulary, just editing those files. 
 
-## RGPD
+## RGPD-->
 
 MAMA was developed under the territory and jurisdiction of the European Union, and is therefore subject to the RGPD guidelines [@RGPD:2016].
 Core developements were prior to the directives publications however we are compliant on all security points.
