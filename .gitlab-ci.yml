@@ -25,7 +25,7 @@ stages:
 build PDF:
   stage: build
   tags:
-    - shell-sauron
+    - shell
   script:
     - echo "==================================";
     - echo "[info] generate PDF ";
@@ -45,7 +45,7 @@ build PDF:
 pdf-tmp:
   stage: artifacts
   tags:
-    - shell-sauron
+    - shell
   except:
     refs:
       - master
@@ -62,7 +62,7 @@ pdf-tmp:
 pdf-lts:
   stage: artifacts
   tags:
-    - shell-sauron
+    - shell
   only:
     refs:
       - master
