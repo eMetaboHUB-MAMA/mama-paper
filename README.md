@@ -25,7 +25,7 @@ docker run --rm \
 
 * **Firstname lastname** - *Initial work* - 
 
-See also the list of [contributors](https://services.pfem.clermont.inra.fr/gitlab/your/projectcontributors) who participated in this project.
+See also the list of [contributors](https://unh-pfem-gitlab.ara.inrae.fr/your/projectcontributors) who participated in this project.
 
 ## License
 
