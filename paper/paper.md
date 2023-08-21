@@ -58,9 +58,15 @@ Thanks its MIT License, everyone can fork and re-use these developements for its
 <!-- Data management at a lab scale -->
 ## Introduction
 
-The MAMA team is working in the framework of the creation of a national network and infrastructure: MetaboHUB. MetaboHUB is the French National Facility in Metabolomics & Fluxomics created in 2013. It aims at providing state-of-the-art tools, services and support in metabolomics and fluxomics to academic research teams and industrial partners in the fields of nutrition, health, agriculture and biotechnology [@rolin:hal-01002241].
+The MAMA team is working in the framework of the creation of a national network and infrastructure: MetaboHUB. 
+MetaboHUB is the French National Facility in Metabolomics & Fluxomics created in 2013. 
+It aims at providing state-of-the-art tools, services and support in metabolomics and fluxomics to academic research teams 
+and industrial partners in the fields of nutrition, health, agriculture and biotechnology [@rolin:hal-01002241].
 
-The idea of MAMA was born when the MetaboHUB consortium had to manage the flow of partner requests from a single portal. Building a specific tool based on a RESTful API and its Web application gave birth to the "MAMA" project for "**M**etaboHUB's **A**nalyses **MA**nager". Now, The MAMA project becomes **M**etabolomics **A**nalysis **MA**nager an application for managing projects and requests for laboratory analyses developed in the framework of a national research infrastructure.
+The idea of MAMA was born when the MetaboHUB consortium had to manage the flow of partner requests from a single portal. 
+Building a specific tool based on a RESTful API and its Web application gave birth to the "MAMA" project for "**M**etaboHUB's **A**nalyses **MA**nager". 
+Now, The MAMA project becomes **M**etabolomics **A**nalysis **MA**nager an application for managing projects 
+and requests for laboratory analyses developed in the framework of a national research infrastructure.
 
 
 <!-- Project data management -->
