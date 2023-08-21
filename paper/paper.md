@@ -175,7 +175,7 @@ We have forked the code of this proposed project through its [Apache 2.0](https:
 
 ## RESTful API code information
 
-The back-end was developed in PHP 7.4 and requires third-party libraries and frameworks to run. The required PHP modules are :
+Back-end latest release requires PHP 8.1 and the following main third-part libraries or frameworks to run:
 
 \begin{itemize}
     \item \textbf{slim} (PHP micro framework to write simple web applications and APIs)
@@ -185,15 +185,17 @@ The back-end was developed in PHP 7.4 and requires third-party libraries and fra
     \item \textbf{phpexcel} (create XLS files - \href{https://packagist.org/packages/phpoffice/phpexcel}{view on website})
 \end{itemize}
 
-Modules are also listed in the project's README file in the `Requirements` section. PHP dependency management is based on [Composer](https://getcomposer.org/), 
-ensuring that the correct versions of these modules are retrieved.
+Main modules are listed in the project's README file in the `Requirements` section. 
+The REST API uses [Composer](https://getcomposer.org/) to manage all its dependencies;
+it ensure that the correct versions of these modules are retrieved and used (and also manage their sub-dependencies).
 
-The RESTful API requires a MySQL database and an SMTP client. These third party tools can be configured in a specific `*.ini` file. 
+The RESTful API requires a MySQL database and an SMTP client. 
+These third party tools can be configured in a specific `*.ini` file. 
 To facilitate the deployment of the project, the MAMA team provides a complete docker image of the application.
 
 Even if we only use the `JSON` REST output in the "MAMA - WebApp", we also developed `XML` and basic `TEXT` ones. 
-Our goal was to open the REST API to any developers, all methods are listed in the 
-official documentation.
+Our goal was to open the REST API to any developers.
+All methods are listed in the official documentation.
 
 # Features
 
