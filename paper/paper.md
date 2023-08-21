@@ -43,13 +43,13 @@ The French National consortium "MetaboHUB" needed a tool to centralize,
 follow-up and compute indicators on submited analysis requests. \
 <!-- Problem -->
 No existing tool were sutable for this task so the consortium (bio)informatic team
-initiate an in-house developements to fulfill these Features. \
+initiate an in-house developements to fulfill these features. \
 <!-- Approach -->
 We choose to develop a RESTful API <!--(using PHP-Slim) --> to centralize the core methods 
 and a light WebApp  <!--(using Twitter-Bootrap and HighChart frameworks)--> to query it. \
 <!-- Results -->
-The MAMA (the **M**etaboHUB's **A**nalyses **MA**nager) tool is available since late 2016 
-has been used to record more than 1500 analysis requests. \
+The MAMA (the **M**etaboHUB's **A**nalyses **MA**nager) tool is available since late 2016, 
+In early 2023, it has been used to record more than 1500 analysis requests. \
 <!-- Conclusion -->
 Thanks its MIT License, everyone can fork and re-use these developements for its own need.
 
