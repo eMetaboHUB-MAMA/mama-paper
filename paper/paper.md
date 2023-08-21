@@ -80,7 +80,9 @@ The MetaboHUB consortium worked on a fonctionnal specifications of a lightweight
 	\item to compute indicators to draw up reports for funding bodies.
 \end{itemize}
 
-**Warning**: `MAMA` is focus on the analyses requests part. The samples management in the laboratory shall be managed using a "Laboratory Information Management System" software (LIMS). In the MetaboHUB context, MAMA exchange informations with commercial LIMS softwares via its `MAMA REST API`.
+**Warning**: `MAMA` is focus on the analyses requests part. 
+The samples management in the laboratory shall be managed using a "Laboratory Information Management System" software (LIMS). 
+In the MetaboHUB context, MAMA exchange informations with commercial LIMS softwares *via* its `MAMA REST API`.
 
 <!-- Portal with internal/external collaborator -->
 ## A portal for internal/external collaborators
