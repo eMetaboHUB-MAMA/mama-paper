@@ -263,8 +263,8 @@ Please refer to the `WebServices Guide` in MAMA REST API official documentation.
 
 # Conclusion
 
-MAMA provides a robust and user-friendly solution for managing metabolomics analysis requests. 
-Its features, architecture, and design have been carefully crafted to address the specific needs of metabolomics researchers. 
+MAMA provides a robust and user-friendly solution to manage metabolomics analysis requests. 
+Its features, architecture, and design have been carefully crafted to address metabolomics researchers specific needs. 
 We believe that the open-source community will greatly benefit from MAMA, and we encourage active participation and contributions to further enhance its capabilities.
 
 # Open to contributions
