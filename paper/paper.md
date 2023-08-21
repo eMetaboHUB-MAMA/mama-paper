@@ -27,7 +27,7 @@ affiliations:
 #   index: 2
 # - name: Independent Researcher, Country
 #   index: 3
-date: 9 December 2022
+date: 21 August 2023
 bibliography: paper.bib
 
 ## Optional fields if submitting to a AAS journal too, see this blog post:
