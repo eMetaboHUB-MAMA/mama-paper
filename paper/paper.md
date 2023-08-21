@@ -153,10 +153,11 @@ Before that, a warning email will be sent to targeted users in order to avoid un
 
 # Methods
 
-MAMA's architecture is based on two projects: a lightweight web application and a RESTful application programming interface (API). 
+MAMA's architecture is based on two projects: 
+a lightweight web application and a RESTful application programming interface (API). 
 The web application relies on the REST API for all data requests. 
-A PHP proxy is in charge of user session management. All WebApp / front-end queries are processed in MAMA REST-API.
-(as mentionned in \autoref{fig:project_structure}).
+A PHP proxy is in charge of user session management. 
+All WebApp / front-end queries are processed in MAMA REST-API (as mentionned in \autoref{fig:project_structure}).
 
 ![MAMA project structure.\label{fig:project_structure}](images/project_structure.png){ width=80% }
 
