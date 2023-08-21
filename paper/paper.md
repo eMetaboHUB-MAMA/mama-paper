@@ -128,9 +128,17 @@ MAMA was developed under the territory and jurisdiction of the European Union, a
 Core developements were prior to the directives publications however we are compliant on all security points.
 We don't store password for LDAP user; for users with "email login" accounts, passwords are hashed with a secure recommended algorithm (we also use a random generated salt option).
 
-For consistency and "Quality Assurance" reasons, data can not be deleted (users accounts and analysis requests). 
+For data-consistency and "Quality Assurance" reasons, data can not be deleted (users accounts and analysis requests). 
 Users that want to stop to use MAMA services can still remove all personnal data from their profile whenever they want.
-Only users emails / LDAP login can not be updated or deleted.
+Only users emails / LDAP login can not be updated or deleted by users.
+However users can contact MAMA's administrator thanks a dedicated email to request an anonymisation of all their personnal data in their profile (even email and login).
+
+The next major release of MAMA (scheduled late 2023) will support better RGPD compliance: 
+users will be able to call an "account suppression" method from their profile that will anonymize their personnal data 
+(equivalent to an account deletion for them, but software managers keep projects data for statistics and reporting).
+In addition, a cron routine will automaticly detecte long-term inactive account (no active projet and no login in the past five years)
+and automaticly anonymize all their personnal data. 
+Before that a warning email will be sent to targeted users in order to avoid unwanted account suppression.
 
 # Methods
 
