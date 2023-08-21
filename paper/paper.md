@@ -275,7 +275,8 @@ Please feel free to fork this code and contact us if you have any questions or p
 
 # Acknowledgements
 
-The `MAMA` project is supported by the French national metabolomics and fluxomics facility, MetaboHUB (11-INBS-0010), launched by the French Ministry of Research and Higher Education and the French funding agency ANR under the "Investissements d'Avenir" programme. 
+The `MAMA` project is supported by the French national metabolomics and fluxomics facility, MetaboHUB (11-INBS-0010), 
+launched by the French Ministry of Research and Higher Education and the French funding agency ANR under the "Investissements d'Avenir" programme. 
 The authors thank all MetaboHUB nodes and French metabolomics centres for their investment in the development project. 
 We also thank Dr Justine Bertrand-Michel, Pr Dominique Rolin, Dr Stephanie Durand for their advice, all the tests and feedback on this project.
 Finally we thank Christophe Duperier for the IT support. 
