@@ -255,7 +255,7 @@ The "statistics" view, only available for administrators, is used to extract and
 Indicators' choice is based on the staff team's experience in providing all metadata needed for annual projects or platform reviews. 
 Among these main indicators, MAMA calculates the number of analysis requests by geographical location, 
 the distribution of different analysis requests types, their funding sources, or the "thematic keywords" distribution. 
-An export in Microsoft Office Excel format with all analysis requests' and users' indicators is also available;
+An export in a Microsoft Office Excel format file with all analysis requests' and users' indicators is also available;
 it can be used for customised and advanced statistics computing. 
 
 For users with developpers skills, these indicators are also accessible directly using the REST API; 
