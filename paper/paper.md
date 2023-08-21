@@ -163,10 +163,14 @@ All WebApp / front-end queries are processed in MAMA REST-API (as mentionned in 
 
 ## Web application code information
 
-The web application was developed at the beginning of 2016, before the diffusion in our domains of Web Components frameworks like Angular or Vue 2 (both launched in September 2016). 
-Nonetheless, we wanted to develop an application taking up these concepts: a lightweight WebApp client that calls a RESTful API.
+The web application was developed at the beginning of 2016, 
+before the diffusion in our domains of Web Components frameworks like Angular or Vue 2 (both launched in September 2016). 
+Nonetheless, we wanted to develop an application taking up these concepts: a 
+lightweight WebApp client that calls a RESTful API.
 
-Technically, MAMA is based on [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/), an open source admin dashboard template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This template uses the Twitter Bootstrap libraries and frameworks, jQuery and HighChart. 
+MAMA's WebApp is based on [SB Admin 2](http://startbootstrap.com/template-overviews/sb-admin-2/), 
+an open source admin dashboard template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). 
+This template uses the Twitter Bootstrap libraries and frameworks, jQuery and HighChart. 
 We have forked the code of this proposed project through its [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-sb-admin-2/blob/gh-pages/LICENSE) license.
 
 ## RESTful API code information
