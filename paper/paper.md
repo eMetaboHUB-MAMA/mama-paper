@@ -107,7 +107,7 @@ This option is recommanded if you want to fork the project and implement your ow
 The option two is only recommended if you want to run the lastest version of the MAMA project. 
 **Warning**: you need to update MAMA configuration files (`config/mama-config.ini` for `MAMA - REST` and `config/mama-webapp.json` for `MAMA WebApp`). 
 We also advise to host configuration files on the server side and mount them into your Docker containers with `-v | --volumes` docker option 
-or edit directly files in docker containers + `docker commit` changes.
+or edit directly files in docker containers (then `docker commit` changes; disencouraged).
 The Apache daemon must be restart to reload configuration updates in both containers).
 
 <!-- FAIR and GDPR -->
@@ -201,14 +201,16 @@ All methods are listed in the official documentation.
 
 MAMA application is used as an interface between laboratories or metabolomics platforms offering services and their end-users. 
 It can be configured to present all types of analyses and all workflows from managers' catalog for processing users' requests. 
-It allows management of both users and staff accounts with different levels of roles in relation to analysis requests management. 
-Analysis requests belongs to each user and advanced rights management allows the staff assigned to each analysis request to view and enrich its informations.
+
+This WebApp also allows management of both users and staff accounts, with different levels of roles in relation to analysis requests management. 
+Analysis requests belongs to users and advanced rights management allows laboratory or consortium's staff assigned to each analysis request to view and enrich its informations. 
 
 ## Analysis request submission
 
 One of the web-application's main feature is to allow users to submit and view their analyses requests. 
 "Create a new request" graphical interface form has been designed to specifically support metabolomics analyses. 
-Specific work has been carried out to select displayed vocabulary and data types. 
+Specific work has been carried out to select displayed vocabulary and data types.
+
 It should be noted that web-forms will not be easily customisable (static HTML code) 
 but some data such as consortium's "geographical sites" or "keywords" used to define analysis requests are managed in the database allowing a MAMA administrator to easily add or update these tags.
 
@@ -222,14 +224,14 @@ Through the web-application, external collaborators can then describe their meta
     \item scientific background - short text description (otherwise, this "scientific context" data can be uloaded in a PDF or DOCX attached file);
 \end{itemize}
 
-All these information will help the laboratory:
+All these information will help laboratory or consortium managers:
 
 \begin{itemize}
-    \item To know if the analysis request can be accepted or if it is outside the laboratory or consortium fields of expertises;
-    \item If the analysis request is rejected, the reason(s) for this rejection (to know the potential new areas of expertises to be developed within the laboratory or consortium);
-    \item If the analysis request is accepted, discuss which platform is most qualified/relevant to carry it out;
-    \item Calculate indicators on analysis requests (see dedicated section below);
-    \item Extract a list of analysis requests through filters (and download it in `*.xlsx` files).
+    \item to know if the analysis request can be accepted or if it is outside the laboratory or consortium fields of expertises;
+    \item if the analysis request is rejected, the reason(s) for this rejection (to know the potential new areas of expertises to be developed within the laboratory or consortium);
+    \item if the analysis request is accepted, discuss which platform is most qualified/relevant to carry it out;
+    \item calculate indicators on analysis requests (see dedicated section below);
+    \item extract a list of analysis requests through filters (and download it in a Microsoft Office Excel formatted file).
 \end{itemize}
 
 ## Analysis requests management dashboard
@@ -238,6 +240,7 @@ As soon as a user is logged-in, it will be redirected to a "dashboard" default v
 This view will differ depending on users' permissions offering either a "partner dashboard" or a "laboratory staff dashboard".
 User can only see their analysis requests (their status and staff members involved);
 managers are allowed to see all submitted analysis requests. 
+
 For the laboratory staff (managers), it also includes secondary functionalities such as an internal messaging system and a "scheduler meeting assistant". 
 This dashboard contains indicators on analysis requests and shortcuts to access them. 
 For users with the highest security permissions (administrators), indicators about users are also displayed.
@@ -254,10 +257,11 @@ Among these main indicators, MAMA calculates the number of analysis requests by 
 the distribution of different analysis requests types, their funding sources, or the "thematic keywords" distribution. 
 An export in Microsoft Office Excel format with all analysis requests' and users' indicators is also available;
 it can be used for customised and advanced statistics computing. 
-These indicators are also accessible directly using the REST API. 
-it can compute any statistics with custom `filters` and `group` options. 
+
+For users with developpers skills, these indicators are also accessible directly using the REST API; 
+This `/projects-statistics` endpoint can compute any indicators with custom `filters` and `group` options. 
 Please refer to the `WebServices Guide` in MAMA REST API official documentation. 
-**Warning**: in order to access `GET /projects-statistics` path, the provided authentication token must belong to a user-account with an "administrator authorizations".
+**Warning**: in order to access `GET /projects-statistics` path, the provided authentication token must belong to a user-account with "administrator authorizations".
 
 ![Indicators example.\label{fig:statistics_example}](images/statistics_example.png){ width=80% }
 
