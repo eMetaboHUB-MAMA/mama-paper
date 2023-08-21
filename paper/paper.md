@@ -232,9 +232,15 @@ All these information will help the laboratory:
     \item Extract a list of analysis requests through filters (and download it in `*.xlsx` files).
 \end{itemize}
 
-## Projects management dashboard
+## Analysis requests management dashboard
 
-As soon as a user is logged in, he/she is presented with a view of the projects organised in the form of a dashboard. This view will differ depending on the user's permissions offering either a "partner dashboard" or a "laboratory staff dashboard" allowing you to see all submitted projects, their status and the teams involved. For the laboratory staff, it also includes secondary functionalities such as an internal messaging system and a planning assistant. This dashboard contains indicators on projects and shortcuts to access them. For users with the highest security permissions, indicators on all users are also displayed.
+As soon as a user is logged-in, it will be redirected to a "dashboard" default view thats show all its analysis requests main indicators. 
+This view will differ depending on users' permissions offering either a "partner dashboard" or a "laboratory staff dashboard".
+User can only see their analysis requests (their status and staff members involved);
+managers are allowed to see all submitted analysis requests. 
+For the laboratory staff (managers), it also includes secondary functionalities such as an internal messaging system and a "scheduler meeting assistant". 
+This dashboard contains indicators on analysis requests and shortcuts to access them. 
+For users with the highest security permissions (administrators), indicators about users are also displayed.
 
 ![User dashboard.\label{fig:dashboad_user}](images/dashboad_user.png){ width=80% }
 
