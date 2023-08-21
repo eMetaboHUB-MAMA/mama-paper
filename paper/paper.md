@@ -248,13 +248,16 @@ For users with the highest security permissions (administrators), indicators abo
 
 ## Indicators
 
-Interfaces allow the extraction of different indicators relating to numbers and types of projects or application areas. 
-The choice of indicators is based on the team's experience in providing the metadata needed for annual project or platform reviews. 
-Among these main indicators, MAMA calculates the number of projects by geographical location, the distribution of different types of projects, the sources of funding, or the distributions by thematic keywords. 
-An export in Microsoft Office Excel or LibreOffice format with all project and user indicators is also available, allowing for customised and advanced statistics. 
-These indicators are also accessible and searchable by the REST API. 
-The REST API can compute any statistics with custom `filters` and `group` options. 
-Please refer to the `WebServices Guide` in the MAMA REST API official documentation. Warning: the authentication token must have the correct authorization to access to `GET /projects-statistics` path.
+The "statistics" view, only available for administrators, is used to extract and compute differents indicators. 
+Indicators' choice is based on the staff team's experience in providing all metadata needed for annual projects or platform reviews. 
+Among these main indicators, MAMA calculates the number of analysis requests by geographical location, 
+the distribution of different analysis requests types, their funding sources, or the "thematic keywords" distribution. 
+An export in Microsoft Office Excel format with all analysis requests' and users' indicators is also available;
+it can be used for customised and advanced statistics computing. 
+These indicators are also accessible directly using the REST API. 
+it can compute any statistics with custom `filters` and `group` options. 
+Please refer to the `WebServices Guide` in MAMA REST API official documentation. 
+**Warning**: in order to access `GET /projects-statistics` path, the provided authentication token must belong to a user-account with an "administrator authorizations".
 
 ![Indicators example.\label{fig:statistics_example}](images/statistics_example.png){ width=80% }
 
