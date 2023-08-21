@@ -1,0 +1,75 @@
+###############################################################################
+## VARIABLES
+
+# NA
+
+###############################################################################
+## CACHE
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - artifacts/
+    - paper/*.pdf
+
+###############################################################################
+## STAGES
+
+stages:
+  - build
+  - artifacts
+
+###############################################################################
+## BUILD
+
+build PDF:
+  stage: build
+  tags:
+    - shell
+  script:
+    - echo "==================================";
+    - echo "[info] generate PDF ";
+    - ./docker_build_pdf.sh
+    - echo "==================================";
+  after_script:
+    - echo "==================================";
+    - echo "[info] copy generated PDF into 'artifacts' directory ";
+    - test -d artifacts || mkdir artifacts
+    - cp paper/paper.pdf artifacts/
+    - echo "==================================";
+
+###############################################################################
+## ARTIFACTS
+
+# build artifact for dev. branches
+pdf-tmp:
+  stage: artifacts
+  tags:
+    - shell
+  except:
+    refs:
+      - master
+      - tags
+  script:
+    - ls artifacts/
+  artifacts:
+    name: mama-paper-$CI_COMMIT_REF_NAME
+    expire_in: 1 day
+    paths:
+        - $CI_PROJECT_DIR/artifacts
+
+# build artifact for stables releases
+pdf-lts:
+  stage: artifacts
+  tags:
+    - shell
+  only:
+    refs:
+      - master
+      - tags
+  script:
+    - ls artifacts/
+  artifacts:
+    name: mama-paper-$CI_COMMIT_REF_NAME
+    paths:
+        - $CI_PROJECT_DIR/artifacts
