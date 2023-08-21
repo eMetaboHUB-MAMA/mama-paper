@@ -27,7 +27,7 @@ affiliations:
 #   index: 2
 # - name: Independent Researcher, Country
 #   index: 3
-date: 9 December 2022
+date: 21 August 2023
 bibliography: paper.bib
 
 ## Optional fields if submitting to a AAS journal too, see this blog post:
@@ -98,8 +98,7 @@ install and configure correctly third part tools, libraries and dependencies (Ap
 The option two is only recommended if you want to run the lastest version of the MAMA project. 
 Warning: you need to update MAMA configuration files (`config/mama-config.ini` for `MAMA - REST` and `config/mama-webapp.json` for `MAMA WebApp`). We also advise to host configuration files on the server side and mount them into your Docker containers with `-v | --volumes` docker option or edit directly files in docker containers + `docker commit` changes. The Apache daemon must be restart to reload configuration updates in both containers).
 
-<!-- FAIR and RGPD -->
-# RGPD
+<!-- FAIR and GDPR -->
 
 <!--## FAIR
 
@@ -120,11 +119,11 @@ It was necessary to be pretty accurate in order to describe **analysis requests*
 If any user wants to use this software outside of a metabolomics analysis field, 
 it should update vocabulary used in REST API URLs and GET parameters (require skill in PHP Slim framework) and in the data-model (to create a more consistent code).
 For the front-end, all texts displayed in WebApp are defined in javascript and HTML-Template files (it allow us to ensure a French and English localisations);
-It's easyer to update GUI vocabulary, just editing those files. 
+It's easyer to update GUI vocabulary, just editing those files. -->
 
-## RGPD-->
+## GDPR - General Data Protection Regulation
 
-MAMA was developed under the territory and jurisdiction of the European Union, and is therefore subject to the RGPD guidelines [@RGPD:2016].
+MAMA was developed under the territory and jurisdiction of the European Union, and is therefore subject to the GDPR\footnote{General Data Protection Regulation} guidelines [@GDPR:2016].
 Core developements were prior to the directives publications however we are compliant on all security points.
 We don't store password for LDAP user; for users with "email login" accounts, passwords are hashed with a secure recommended algorithm (we also use a random generated salt option).
 
@@ -133,7 +132,7 @@ Users who wish to no longer use MAMA services can delete all personal data from 
 Only users' emails / LDAP login informations can not be updated or deleted by users.
 However users can contact MAMA's administrators, thanks a dedicated email, to request an anonymisation of all their personnal data in their profile (even email and login).
 
-The next major release of MAMA (scheduled late 2023) will support better RGPD compliance: 
+The next major release of MAMA (scheduled late 2023) will support better GDPR compliance: 
 users will be able to call an "account suppression" method from their profile that will anonymize their personnal data 
 (equivalent to an "account deletion" for them, but software managers keep anonymous data/metadata for statistics and reporting).
 In addition, a cron routine will automaticly detecte long-term inactive accounts (without any active projects and no sign-in in the past five years)
