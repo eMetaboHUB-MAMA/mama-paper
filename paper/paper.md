@@ -206,29 +206,30 @@ Analysis requests belongs to each user and advanced rights management allows the
 
 ## Analysis request submission
 
-One of the main features of the web application is to allow users to submit and view requests for analyses. 
-The graphical interface of the "Create a new request" form has been designed to specifically support metabolomics analyses. 
-Specific work has been carried out to select the vocabulary and data types. 
-It should be noted that the forms will not be easily customisable (static HTML code) but some data such as the geographical sites of the consortium or the keywords used to define the projects are managed in the database allowing a MAMA administrator to easily add or update these tags.
+One of the web-application's main feature is to allow users to submit and view their analyses requests. 
+"Create a new request" graphical interface form has been designed to specifically support metabolomics analyses. 
+Specific work has been carried out to select displayed vocabulary and data types. 
+It should be noted that web-forms will not be easily customisable (static HTML code) 
+but some data such as consortium's "geographical sites" or "keywords" used to define analysis requests are managed in the database allowing a MAMA administrator to easily add or update these tags.
 
-Through the web application, external collaborators can then describe their metabolomics project (or "analysis request") with the following information:
+Through the web-application, external collaborators can then describe their metabolomics project (as "analysis request") with the following information:
 
 \begin{itemize}
-    \item generic title and description of the project;
-    \item project types - "Equipment provision", "Service provision - routine", "Data processing and analysis" or "other";
-    \item in the case of routine laboratory analysis, the number and sample to be processed;
-    \item relevant keywords - help the laboratory board to refer the project to the most appropriate platform(s) or service(s);
-    \item scientific background short text description or description of the scientific background in an attached file (supporting formats `*.pdf` or `*.docx`).
+    \item generic title and description of the analysis requests;
+    \item analysis requests types - "Equipment provision", "Service provision - routine", "Data processing and analysis" or "other";
+    \item in case of routine laboratory analysis, the number of sample to be processed;
+    \item pick relevant keywords in a list - this list is setted by administrators in the WebApp's backoffice;
+    \item scientific background - short text description (otherwise, this "scientific context" data can be uloaded in a PDF or DOCX attached file);
 \end{itemize}
 
 All these information will help the laboratory:
 
 \begin{itemize}
-    \item To know if the application can be accepted or if it is outside the laboratory's field of expertise;
-    \item If the application is rejected, the reason for this rejection (to know the potential new areas of expertise to be developed within the laboratory or consortium);
-    \item If the application is accepted, discuss which platform is most qualified/relevant to carry it out;
-    \item Calculate indicators on the analysis requests (see dedicated section below);
-    \item Extract a list of projects through filters (and download it in a `*.xlsx` file).
+    \item To know if the analysis request can be accepted or if it is outside the laboratory or consortium fields of expertises;
+    \item If the analysis request is rejected, the reason(s) for this rejection (to know the potential new areas of expertises to be developed within the laboratory or consortium);
+    \item If the analysis request is accepted, discuss which platform is most qualified/relevant to carry it out;
+    \item Calculate indicators on analysis requests (see dedicated section below);
+    \item Extract a list of analysis requests through filters (and download it in `*.xlsx` files).
 \end{itemize}
 
 ## Projects management dashboard
