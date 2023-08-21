@@ -199,10 +199,10 @@ All methods are listed in the official documentation.
 
 # Features
 
-The application serves as an interface between laboratories or metabolomics platforms offering services. 
-It can be configured to present the types of analyses offered and the workflows for processing the user's request. 
-It allows the management of user accounts and staff accounts with different levels of roles in relation to project management. 
-Projects are partitioned to each user and advanced rights management allows the personnel assigned to each project to be limited.
+MAMA application is used as an interface between laboratories or metabolomics platforms offering services and their end-users. 
+It can be configured to present all types of analyses and all workflows from managers' catalog for processing users' requests. 
+It allows management of both users and staff accounts with different levels of roles in relation to analysis requests management. 
+Analysis requests belongs to each user and advanced rights management allows the staff assigned to each analysis request to view and enrich its informations.
 
 ## Analysis request submission
 
