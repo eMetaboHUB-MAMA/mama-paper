@@ -74,10 +74,10 @@ and requests for laboratory analyses developed in the framework of a national re
 
 The MetaboHUB consortium worked on a fonctionnal specifications of a lightweight web application for managing data and metadata related to metabolomics projects, in particular:
 \begin{itemize}
-	\item to centralise requests for analyses from future collaborators or partners of a laboratory or consortium (analyses, bioinformatics processing, training, provision of equipment); 
-	\item to arbitrate and distribute accepted requests between the different departments of a laboratory or geographical sites of a consortium; 
-	\item to exchange information on submitted requests (between partners and the laboratory, or between members of a consortium); 
-	\item to compute indicators to draw up reports for funding bodies.
+    \item to centralise requests for analyses from future collaborators or partners of a laboratory or consortium (analyses, bioinformatics processing, training, provision of equipment); 
+    \item to arbitrate and distribute accepted requests between the different departments of a laboratory or geographical sites of a consortium; 
+    \item to exchange information on submitted requests (between partners and the laboratory, or between members of a consortium); 
+    \item to compute indicators to draw up reports for funding bodies.
 \end{itemize}
 
 **Warning**: `MAMA` is focus on the analyses requests part. 
