@@ -68,7 +68,6 @@ Building a specific tool based on a RESTful API and its Web application gave bir
 Now, The MAMA project becomes **M**etabolomics **A**nalysis **MA**nager an application for managing projects 
 and requests for laboratory analyses developed in the framework of a national research infrastructure.
 
-
 <!-- Project data management -->
 ## Project data management
 
@@ -78,7 +77,6 @@ The MetaboHUB consortium worked on a fonctionnal specifications of a lightweight
 - to arbitrate and distribute accepted requests between the different departments of a laboratory or geographical sites of a consortium; 
 - to exchange information on submitted requests (between partners and the laboratory, or between members of a consortium); 
 - to compute indicators to draw up reports for funding bodies.
-
 
 **Warning**: "MAMA" is focus on the analyses requests part. 
 The samples management in the laboratory shall be managed using a "Laboratory Information Management System" software (LIMS). 
@@ -215,13 +213,11 @@ are managed in the database allowing a MAMA administrator to easily add or updat
 
 Through the web-application, external collaborators can then describe their metabolomics project (as "analysis request") with the following information:
 
-
 - **generic title** and **description** of the analysis requests;
 - analysis requests **types** - "Equipment provision", "Service provision - routine", "Data processing and analysis" or "other";
 - in case of "routine laboratory analysis", the **number of sample to be processed**;
 - pick relevant **keywords** in a list - this list is setted by administrators in the WebApp's backoffice;
 - **scientific background** - short text description (otherwise, this "scientific context" data can be uloaded in a PDF or DOCX attached file);
-
 
 All these information will help laboratory or consortium managers:
 
