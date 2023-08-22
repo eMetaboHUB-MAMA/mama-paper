@@ -48,8 +48,8 @@ initiate an in-house developements to fulfill these features. \
 We choose to develop a RESTful API <!--(using PHP-Slim) --> to centralize the core methods 
 and a light WebApp  <!--(using Twitter-Bootrap and HighChart frameworks)--> to query it. \
 <!-- Results -->
-The MAMA (the **M**etaboHUB's **A**nalyses **MA**nager) tool is available since late 2016, 
-In early 2023, it has been used to record more than 1500 analysis requests. \
+The MAMA (the **M**etaboHUB's **A**nalyses **MA**nager) tool is available since late 2016; 
+in early 2023, it has been used to record more than 1500 analysis requests. \
 <!-- Conclusion -->
 Thanks its MIT License, everyone can fork and re-use these developements for its own need.
 
@@ -58,7 +58,7 @@ Thanks its MIT License, everyone can fork and re-use these developements for its
 <!-- Data management at a lab scale -->
 ## Introduction
 
-The MAMA team is working in the framework of the creation of a national network and infrastructure: MetaboHUB. 
+The MAMA team operates within the context of a national network and infrastructure known as "MetaboHUB". 
 MetaboHUB is the French National Facility in Metabolomics & Fluxomics created in 2013. 
 It aims at providing state-of-the-art tools, services and support in metabolomics and fluxomics to academic research teams 
 and industrial partners in the fields of nutrition, health, agriculture and biotechnology [@rolin:hal-01002241].
@@ -78,7 +78,7 @@ The MetaboHUB consortium worked on a fonctionnal specifications of a lightweight
 - to exchange information on submitted requests (between partners and the laboratory, or between members of a consortium); 
 - to compute indicators to draw up reports for funding bodies.
 
-**Warning**: "MAMA" is focus on the analyses requests part. 
+**Warning**: "MAMA" is focused on the analyses requests part. 
 The samples management in the laboratory shall be managed using a "Laboratory Information Management System" software (LIMS). 
 In the MetaboHUB context, MAMA exchange informations with commercial LIMS softwares *via* its "MAMA REST API".
 
@@ -97,18 +97,22 @@ or just pull reference Docker images and run these services as Docker containers
 For both options you need a MySQL database (See MAMA documentation for recommanded version and configuration).
 
 <!-- Code repository -->
-For option one, please follow each repository `README.md` files instruction to
+## Clone/Fork code from Git repository
+
+For option one, please follow each repository `README.md` files instructions to
 install and configure correctly third part tools, libraries and dependencies (Apache and PHP modules and versions). 
 This option is recommanded if you want to fork the project and implement your own MAMA version.
 
 <!-- Docker image -->
-The option two is only recommended if you want to run the lastest version of the MAMA project. 
+## Use provided Docker image
+
+Option two is only recommended if you want to run the lastest version of the MAMA project. 
 **Warning**: you need to update MAMA configuration files (`config/mama-config.ini` for "MAMA - REST" and `config/mama-webapp.json` for "MAMA WebApp"). 
-We also advise to host configuration files on the server side and mount them into your Docker containers with `-v | --volumes` docker option 
+We also advise you to host configuration files on the server side and mount them into your Docker containers with `-v | --volumes` docker option 
 or edit directly files in docker containers (then `docker commit` changes; disencouraged).
 The Apache daemon must be restart to reload configuration updates in both containers).
 
-<!-- FAIR and GDPR -->
+<!--# FAIR and GDPR -->
 
 <!--## FAIR
 
@@ -131,7 +135,7 @@ it should update vocabulary used in REST API URLs and GET parameters (require sk
 For the front-end, all texts displayed in WebApp are defined in javascript and HTML-Template files (it allow us to ensure a French and English localisations);
 It's easyer to update GUI vocabulary, just editing those files. -->
 
-## GDPR - General Data Protection Regulation
+# GDPR - General Data Protection Regulation
 
 MAMA was developed under the territory and jurisdiction of the European Union, and is therefore subject to the GDPR\footnote{General Data Protection Regulation} guidelines [@GDPR:2016].
 Core developements were prior to the directives publications however we are compliant on all security points.
@@ -264,13 +268,13 @@ MAMA provides a robust and user-friendly solution to manage metabolomics analysi
 Its features, architecture, and design have been carefully crafted to address metabolomics researchers specific needs. 
 We believe that the open-source community will greatly benefit from MAMA, and we encourage active participation and contributions to further enhance its capabilities.
 
-# Open to contributions
+## Open to contributions
 
 All MAMA developments are published under an open source license (MIT license). 
 The MAMA team is open to contributions from the community. 
 Please feel free to fork this code and contact us if you have any questions or problems.
 
-# Acknowledgements
+## Acknowledgements
 
 "MAMA project" is supported by the French national metabolomics and fluxomics facility, MetaboHUB (11-INBS-0010), 
 launched by the French Ministry of Research and Higher Education and the French funding agency ANR under the "Investissements d'Avenir" programme. 
