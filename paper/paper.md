@@ -80,9 +80,9 @@ The MetaboHUB consortium worked on a fonctionnal specifications of a lightweight
     \item to compute indicators to draw up reports for funding bodies.
 \end{itemize}
 
-**Warning**: `MAMA` is focus on the analyses requests part. 
+**Warning**: "MAMA" is focus on the analyses requests part. 
 The samples management in the laboratory shall be managed using a "Laboratory Information Management System" software (LIMS). 
-In the MetaboHUB context, MAMA exchange informations with commercial LIMS softwares *via* its `MAMA REST API`.
+In the MetaboHUB context, MAMA exchange informations with commercial LIMS softwares *via* its "MAMA REST API".
 
 <!-- Portal with internal/external collaborator -->
 ## A portal for internal/external collaborators
@@ -105,7 +105,7 @@ This option is recommanded if you want to fork the project and implement your ow
 
 <!-- Docker image -->
 The option two is only recommended if you want to run the lastest version of the MAMA project. 
-**Warning**: you need to update MAMA configuration files (`config/mama-config.ini` for `MAMA - REST` and `config/mama-webapp.json` for `MAMA WebApp`). 
+**Warning**: you need to update MAMA configuration files (`config/mama-config.ini` for "MAMA - REST" and `config/mama-webapp.json` for "MAMA WebApp"). 
 We also advise to host configuration files on the server side and mount them into your Docker containers with `-v | --volumes` docker option 
 or edit directly files in docker containers (then `docker commit` changes; disencouraged).
 The Apache daemon must be restart to reload configuration updates in both containers).
@@ -185,7 +185,7 @@ Back-end latest release requires PHP 8.1 and the following main third-part libra
     \item \textbf{phpexcel} (create XLS files - \href{https://packagist.org/packages/phpoffice/phpexcel}{view on website})
 \end{itemize}
 
-Main modules are listed in the project's README file in the `Requirements` section. 
+Main modules are listed in the project's README file in the "Requirements" section. 
 The REST API uses [Composer](https://getcomposer.org/) to manage all its dependencies;
 it ensure that the correct versions of these modules are retrieved and used (and also manage their sub-dependencies).
 
@@ -200,7 +200,7 @@ All methods are listed in the official documentation.
 # Features
 
 MAMA application is used as an interface between laboratories or metabolomics platforms offering services and their end-users. 
-It can be configured to present all types of analyses and all workflows from managers' catalog for processing users' requests. 
+It can be configured to present all types of analyses and all workflows from managers' catalogue. 
 
 This WebApp also allows management of both users and staff accounts, with different levels of roles in relation to analysis requests management. 
 Analysis requests belongs to users and advanced rights management allows laboratory or consortium's staff assigned to each analysis request to view and enrich its informations. 
@@ -208,20 +208,21 @@ Analysis requests belongs to users and advanced rights management allows laborat
 ## Analysis request submission
 
 One of the web-application's main feature is to allow users to submit and view their analyses requests. 
-"Create a new request" graphical interface form has been designed to specifically support metabolomics analyses. 
-Specific work has been carried out to select displayed vocabulary and data types.
+"Create a new request" graphical interface form has been designed to specifically support metabolomics analyses; 
+specific work has been carried out to select displayed vocabulary and data types.
 
-It should be noted that web-forms will not be easily customisable (static HTML code) 
-but some data such as consortium's "geographical sites" or "keywords" used to define analysis requests are managed in the database allowing a MAMA administrator to easily add or update these tags.
+It should be noted that web-forms will not be easily customisable (static HTML code); 
+but some data such as consortium's "geographical sites" or "keywords", (used to define analysis requests),
+are managed in the database allowing a MAMA administrator to easily add or update these tags.
 
 Through the web-application, external collaborators can then describe their metabolomics project (as "analysis request") with the following information:
 
 \begin{itemize}
-    \item generic title and description of the analysis requests;
-    \item analysis requests types - "Equipment provision", "Service provision - routine", "Data processing and analysis" or "other";
-    \item in case of routine laboratory analysis, the number of sample to be processed;
-    \item pick relevant keywords in a list - this list is setted by administrators in the WebApp's backoffice;
-    \item scientific background - short text description (otherwise, this "scientific context" data can be uloaded in a PDF or DOCX attached file);
+    \item **generic title** and **description** of the analysis requests;
+    \item analysis requests **types** - "Equipment provision", "Service provision - routine", "Data processing and analysis" or "other";
+    \item in case of "routine laboratory analysis", the **number of sample to be processed**;
+    \item pick relevant **keywords** in a list - this list is setted by administrators in the WebApp's backoffice;
+    \item **scientific background** - short text description (otherwise, this "scientific context" data can be uloaded in a PDF or DOCX attached file);
 \end{itemize}
 
 All these information will help laboratory or consortium managers:
@@ -252,15 +253,15 @@ For users with the highest security permissions (administrators), indicators abo
 ## Indicators
 
 The "statistics" view, only available for administrators, is used to extract and compute differents indicators. 
-Indicators' choice is based on the staff team's experience in providing all metadata needed for annual projects or platform reviews. 
+Indicators' choice is based on the staff team's experience in providing all metadata needed for annual projects or platforms reviews. 
 Among these main indicators, MAMA calculates the number of analysis requests by geographical location, 
 the distribution of different analysis requests types, their funding sources, or the "thematic keywords" distribution. 
 An export in a Microsoft Office Excel format file with all analysis requests' and users' indicators is also available;
 it can be used for customised and advanced statistics computing. 
 
-For users with developpers skills, these indicators are also accessible directly using the REST API; 
-This `/projects-statistics` endpoint can compute any indicators with custom `filters` and `group` options. 
-Please refer to the `WebServices Guide` in MAMA REST API official documentation. 
+For users with developpers skills, these indicators are also accessible directly trought MAMA REST API; 
+This `/projects-statistics` endpoint can compute any indicators with custom "filters" and "group" options. 
+Please refer to the "WebServices Guide" in MAMA REST API official documentation. 
 **Warning**: in order to access `GET /projects-statistics` path, the provided authentication token must belong to a user-account with "administrator authorizations".
 
 ![Indicators example.\label{fig:statistics_example}](images/statistics_example.png){ width=80% }
@@ -279,7 +280,7 @@ Please feel free to fork this code and contact us if you have any questions or p
 
 # Acknowledgements
 
-The `MAMA` project is supported by the French national metabolomics and fluxomics facility, MetaboHUB (11-INBS-0010), 
+"MAMA project" is supported by the French national metabolomics and fluxomics facility, MetaboHUB (11-INBS-0010), 
 launched by the French Ministry of Research and Higher Education and the French funding agency ANR under the "Investissements d'Avenir" programme. 
 The authors thank all MetaboHUB nodes and French metabolomics centres for their investment in the development project. 
 We also thank Dr Justine Bertrand-Michel, Pr Dominique Rolin, Dr Stephanie Durand for their advice, all the tests and feedback on this project.
