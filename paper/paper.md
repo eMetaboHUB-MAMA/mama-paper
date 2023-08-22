@@ -73,12 +73,12 @@ and requests for laboratory analyses developed in the framework of a national re
 ## Project data management
 
 The MetaboHUB consortium worked on a fonctionnal specifications of a lightweight web application for managing data and metadata related to metabolomics projects, in particular:
-\begin{itemize}
-    \item to centralise requests for analyses from future collaborators or partners of a laboratory or consortium (analyses, bioinformatics processing, training, provision of equipment); 
-    \item to arbitrate and distribute accepted requests between the different departments of a laboratory or geographical sites of a consortium; 
-    \item to exchange information on submitted requests (between partners and the laboratory, or between members of a consortium); 
-    \item to compute indicators to draw up reports for funding bodies.
-\end{itemize}
+
+- to centralise requests for analyses from future collaborators or partners of a laboratory or consortium (analyses, bioinformatics processing, training, provision of equipment); 
+- to arbitrate and distribute accepted requests between the different departments of a laboratory or geographical sites of a consortium; 
+- to exchange information on submitted requests (between partners and the laboratory, or between members of a consortium); 
+- to compute indicators to draw up reports for funding bodies.
+
 
 **Warning**: "MAMA" is focus on the analyses requests part. 
 The samples management in the laboratory shall be managed using a "Laboratory Information Management System" software (LIMS). 
@@ -177,13 +177,11 @@ We have forked the code of this proposed project through its [Apache 2.0](https:
 
 Back-end latest release requires PHP 8.1 and the following main third-part libraries or frameworks to run:
 
-\begin{itemize}
-    \item \textbf{slim} (PHP micro framework to write simple web applications and APIs)
-    \item \textbf{doctrine} (database storage and object mapping based on Object Relational Mapper (ORM) and the Database Abstraction Layer (DBAL) concepts) 
-    \item \textbf{jobbyphp} (add cron expression to your PHP project - \href{https://github.com/jobbyphp/jobby}{view on github})
-    \item \textbf{phpmailer} (send emails - \href{https://github.com/PHPMailer/PHPMailer}{view on github})
-    \item \textbf{phpexcel} (create XLS files - \href{https://packagist.org/packages/phpoffice/phpexcel}{view on website})
-\end{itemize}
+- **slim** - PHP micro framework to write simple web applications and APIs
+- **doctrine** - database storage and object mapping based on Object Relational Mapper (ORM) and the Database Abstraction Layer (DBAL) concepts
+- **jobbyphp** - add cron expression to your PHP project - [view on github](https://github.com/jobbyphp/jobby)
+- **phpmailer** - send emails - [view on github](https://github.com/PHPMailer/PHPMailer)
+- **phpexcel** - create XLS files - [view on website](https://packagist.org/packages/phpoffice/phpexcel)
 
 Main modules are listed in the project's README file in the "Requirements" section. 
 The REST API uses [Composer](https://getcomposer.org/) to manage all its dependencies;
@@ -217,23 +215,21 @@ are managed in the database allowing a MAMA administrator to easily add or updat
 
 Through the web-application, external collaborators can then describe their metabolomics project (as "analysis request") with the following information:
 
-\begin{itemize}
-    \item **generic title** and **description** of the analysis requests;
-    \item analysis requests **types** - "Equipment provision", "Service provision - routine", "Data processing and analysis" or "other";
-    \item in case of "routine laboratory analysis", the **number of sample to be processed**;
-    \item pick relevant **keywords** in a list - this list is setted by administrators in the WebApp's backoffice;
-    \item **scientific background** - short text description (otherwise, this "scientific context" data can be uloaded in a PDF or DOCX attached file);
-\end{itemize}
+
+- **generic title** and **description** of the analysis requests;
+- analysis requests **types** - "Equipment provision", "Service provision - routine", "Data processing and analysis" or "other";
+- in case of "routine laboratory analysis", the **number of sample to be processed**;
+- pick relevant **keywords** in a list - this list is setted by administrators in the WebApp's backoffice;
+- **scientific background** - short text description (otherwise, this "scientific context" data can be uloaded in a PDF or DOCX attached file);
+
 
 All these information will help laboratory or consortium managers:
 
-\begin{itemize}
-    \item to know if the analysis request can be accepted or if it is outside the laboratory or consortium fields of expertises;
-    \item if the analysis request is rejected, the reason(s) for this rejection (to know the potential new areas of expertises to be developed within the laboratory or consortium);
-    \item if the analysis request is accepted, discuss which platform is most qualified/relevant to carry it out;
-    \item calculate indicators on analysis requests (see dedicated section below);
-    \item extract a list of analysis requests through filters (and download it in a Microsoft Office Excel formatted file).
-\end{itemize}
+- to know if the analysis request can be accepted or if it is outside the laboratory or consortium fields of expertises;
+- if the analysis request is rejected, the reason(s) for this rejection (to know the potential new areas of expertises to be developed within the laboratory or consortium);
+- if the analysis request is accepted, discuss which platform is most qualified/relevant to carry it out;
+- calculate indicators on analysis requests (see dedicated section below);
+- extract a list of analysis requests through filters (and download it in a Microsoft Office Excel formatted file).
 
 ## Analysis requests management dashboard
 
