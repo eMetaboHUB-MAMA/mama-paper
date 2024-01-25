@@ -8,6 +8,14 @@
 
 This project is used to host MAMA's paper files, and build a temporary `pdf` file.
 
+## MAMA public code repositories
+
+- [MAMA-WebApp](https://github.com/eMetaboHUB-MAMA/mama-webapp) - a light webapp used to query the MAMA-REST API
+- [MAMA-REST](https://github.com/eMetaboHUB-MAMA/mama-rest) - a RESTFul API
+- [MAMA-REST Doc](https://github.com/eMetaboHUB-MAMA/mama-rest-doc) - the REST API documentation (latex)
+
+Note: repositories are mirrored on a private GitLab instance used for daily developments.
+
 ## Getting Started
 
 The template files are provided thanks [JOSS publisher](https://joss.theoj.org/).
@@ -20,6 +28,7 @@ docker run --rm \
     --env JOURNAL=joss \
     openjournals/inara
 ```
+
 <!--
 ## Authors
 
